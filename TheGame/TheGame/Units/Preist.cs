@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using TheGame.BoardInterfaces;
-using TheGame.Utils;
-
-namespace TheGame.Units
+﻿namespace TheGame.Units
 {
-    class Preist : AbstractHero
+    using System.Collections.Generic;
+    using TheGame.Utils;
+
+    public class Preist : AbstractHero
     {
-
-
         public Preist(List<Position> position)
         {
             this.hp = 5;
@@ -20,12 +12,9 @@ namespace TheGame.Units
             this.position = position;
         }
 
-        public override void useSpecial()
+        public override void UseSpecial()
         {
             this.hp += 1;
         }
-
-
-        
     }
 }

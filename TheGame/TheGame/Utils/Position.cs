@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TheGame.Utils
+﻿namespace TheGame.Utils
 {
     public class Position
     {
@@ -17,22 +11,22 @@ namespace TheGame.Utils
             this.debthCoo = debthCoo;
         }
 
-        public int getDebthCoo()
+        public int GetDebthCoo()
         {
             return this.debthCoo;
         }
 
-        public void setDebthCoo(int newDebthCoo)
+        public void SetDebthCoo(int newDebthCoo)
         {
             this.debthCoo = newDebthCoo;
         }
 
-        public int getWidthCoo()
+        public int GetWidthCoo()
         {
             return this.widthCoo;
         }
 
-        public void setWidthCoo(int newWidthCoo)
+        public void SetWidthCoo(int newWidthCoo)
         {
             this.widthCoo = newWidthCoo;
         }

@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using TheGame.BoardInterfaces;
-using TheGame.Utils;
-
-
-namespace TheGame.BoardPieces
+﻿namespace TheGame.BoardPieces
 {
-    public class Bomb : IDisplayPiece,IInteractable
+    using System;
+    using System.Collections.Generic;
+    using TheGame.BoardInterfaces;
+    using TheGame.Utils;
+
+    public class Bomb : IDisplayPiece, IInteractable
     {
         private int id;
         private ConsoleColor color = ConsoleColor.Red;
@@ -22,39 +17,34 @@ namespace TheGame.BoardPieces
         {
             this.position = position;
             this.amountOfDamageItInflicts = damage;
-
         }
 
-
-        public int getInteractionResult()
-        {
-            return amountOfDamageItInflicts;
-        }
-
-        public List<Position> getPositions()
-        {
-            return this.position;
-        }
-
-
-        public int getID()
-        {
-            return this.id;
-        }
-
-        public void setID(int id)
+        public void SetID(int id)
         {
             this.id = id;
         }
 
+        public int GetInteractionResult()
+        {
+            return this.amountOfDamageItInflicts;
+        }
 
-        public string getDisplaySymbol()
+        public List<Position> GetPositions()
+        {
+            return this.position;
+        }
+
+        public int GetID()
+        {
+            return this.id;
+        }
+
+        public string GetDisplaySymbol()
         {
             return this.displaySymbol;
         }
 
-
-        public ConsoleColor getColor()
+        public ConsoleColor GetColor()
         {
             return this.color;
         }

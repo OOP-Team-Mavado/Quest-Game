@@ -1,63 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using TheGame.BoardInterfaces;
-using TheGame.Utils;
-
-
-namespace TheGame.Units
+﻿namespace TheGame.Units
 {
-    public abstract class AbstractHero : IUnit,IMovable,IDisplayPiece
-    {
+    using System;
+    using System.Collections.Generic;
+    using TheGame.BoardInterfaces;
+    using TheGame.Utils;
 
+    public abstract class AbstractHero : IUnit, IMovable, IDisplayPiece
+    {
         protected List<Position> position;
         protected int hp;
         protected int id;
         protected ConsoleColor color = ConsoleColor.Cyan;
         protected string displaySymbol;
 
-        public List<Position> getPositions()
+        public List<Position> GetPositions()
         {
             return this.position;
         }
 
-        public void setPosition(List<Position> newPosition)
+        public void SetPosition(List<Position> newPosition)
         {
             this.position = newPosition;
         }
 
-        public int getID()
+        public int GetID()
         {
             return this.id;
         }
 
-        public void setID(int id)
+        public void SetID(int id)
         {
             this.id = id;
         }
 
-        public int getHP()
+        public int GetHP()
         {
             return this.hp;
         }
 
+        public abstract void UseSpecial();
 
-        public abstract void useSpecial();
-        
-            
-        
-
-
-        public string getDisplaySymbol()
+        public string GetDisplaySymbol()
         {
             return this.displaySymbol;
         }
 
-
-        public ConsoleColor getColor()
+        public ConsoleColor GetColor()
         {
             return this.color;
         }

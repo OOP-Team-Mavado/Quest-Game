@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using TheGame.Utils;
-
-namespace TheGame.BoardInterfaces
+﻿namespace TheGame.BoardInterfaces
 {
-    interface IMovable 
+    using System.Collections.Generic;
+    using TheGame.Utils;
+
+    public interface IMovable
     {
-        void setPosition(List<Position> newPosition);
+        void SetPosition(List<Position> newPosition);
     }
 }

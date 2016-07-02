@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using TheGame.Utils;
-using TheGame.BoardInterfaces;
-
-
-namespace TheGame.BoardPieces
+﻿namespace TheGame.BoardPieces
 {
-    public class Box : IDisplayPiece 
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using TheGame.BoardInterfaces;
+    using TheGame.Utils;
+
+    public class Box : IDisplayPiece
     {
         private int id;
         private ConsoleColor color = ConsoleColor.DarkGray;
@@ -21,40 +17,22 @@ namespace TheGame.BoardPieces
         private List<Position> rightBorder;
         private Position startingPosition;
 
-        public Box(Position startingPosition,int length, int height)
+        public Box(Position startingPosition, int length, int height)
         {
             this.startingPosition = startingPosition;
             this.topBorder = new List<Position>();
             this.botBorder = new List<Position>();
             this.leftBorder = new List<Position>();
             this.rightBorder = new List<Position>();
-            initBorders(length, height);
+            this.InitBorders(length, height);
         }
 
-        private void initBorders(int length, int height)
+        public void SetID(int id)
         {
-            
-
-            //Creating top and bottom borders
-            for (int i = 0; i < length; i++)
-            {
-                Position partOfTopBorder = new Position(this.startingPosition.getWidthCoo() + i,this.startingPosition.getDebthCoo());
-                Position partOFBottomBorder = new Position(this.startingPosition.getWidthCoo() + i,this.startingPosition.getDebthCoo() + height -1);
-                this.topBorder.Add(partOfTopBorder);
-                this.botBorder.Add(partOFBottomBorder);
-            }
-
-            //Creating left and right borders
-            for (int i = 0; i < height; i++)
-            {
-                Position partOfLeftBorder = new Position(this.startingPosition.getWidthCoo(),this.startingPosition.getDebthCoo() + i);
-                Position partOfRightBorder = new Position(this.startingPosition.getWidthCoo() + length - 1, this.startingPosition.getDebthCoo() + i);
-                this.leftBorder.Add(partOfLeftBorder);
-                this.rightBorder.Add(partOfRightBorder);
-            }
+            this.id = id;
         }
 
-        public List<List<Position>> getAllBorders()
+        public List<List<Position>> GetAllBorders()
         {
             List<List<Position>> allBorders = new List<List<Position>>();
             allBorders.Add(this.topBorder);
@@ -65,37 +43,46 @@ namespace TheGame.BoardPieces
             return allBorders;
         }
 
-
-        public List<Position> getPositions()
+        public List<Position> GetPositions()
         {
             List<Position> allPositions = this.topBorder.Concat(this.botBorder).Concat(this.leftBorder).Concat(this.rightBorder).ToList();
             return allPositions;
         }
 
-
-        public int getID()
+        public int GetID()
         {
             return this.id;
         }
 
-
-
-
-        public void setID(int id)
-        {
-            this.id = id;
-        }
-
-
-        public string getDisplaySymbol()
+        public string GetDisplaySymbol()
         {
             return this.displaySymbol;
         }
 
-
-        public ConsoleColor getColor()
+        public ConsoleColor GetColor()
         {
             return this.color;
+        }
+
+        private void InitBorders(int length, int height)
+        {
+            //// Creating top and bottom borders
+            for (int i = 0; i < length; i++)
+            {
+                Position partOfTopBorder = new Position(this.startingPosition.GetWidthCoo() + i, this.startingPosition.GetDebthCoo());
+                Position partOFBottomBorder = new Position(this.startingPosition.GetWidthCoo() + i, this.startingPosition.GetDebthCoo() + height - 1);
+                this.topBorder.Add(partOfTopBorder);
+                this.botBorder.Add(partOFBottomBorder);
+            }
+
+            //// Creating left and right borders
+            for (int i = 0; i < height; i++)
+            {
+                Position partOfLeftBorder = new Position(this.startingPosition.GetWidthCoo(), this.startingPosition.GetDebthCoo() + i);
+                Position partOfRightBorder = new Position(this.startingPosition.GetWidthCoo() + length - 1, this.startingPosition.GetDebthCoo() + i);
+                this.leftBorder.Add(partOfLeftBorder);
+                this.rightBorder.Add(partOfRightBorder);
+            }
         }
     }
 }

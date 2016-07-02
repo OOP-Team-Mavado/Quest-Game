@@ -1,66 +1,59 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using TheGame.BoardPieces;
-using TheGame.BoardInterfaces;
-
-namespace TheGame.Utils
+﻿namespace TheGame.Utils
 {
+    using System;
+    using System.Collections.Generic;
+    using TheGame.BoardInterfaces;
+
     public static class Visualizer
     {
-
-        public static void drawEverything(List<IDisplayPiece> allPieces)
+        public static void DrawEverything(List<IDisplayPiece> allPieces)
         {
             Console.Clear();
 
             for (int i = 0; i < allPieces.Count; i++)
             {
                 IDisplayPiece currentPiece = allPieces[i];
-                string displaySymbol = currentPiece.getDisplaySymbol();
-                List<Position> positions = currentPiece.getPositions();
-                ConsoleColor color = currentPiece.getColor();
+                string displaySymbol = currentPiece.GetDisplaySymbol();
+                List<Position> positions = currentPiece.GetPositions();
+                ConsoleColor color = currentPiece.GetColor();
 
                 for (int j = 0; j < positions.Count; j++)
                 {
-                    drawSymbolAtPosition(displaySymbol, positions[j],color);
+                    DrawSymbolAtPosition(displaySymbol, positions[j], color);
                 }
             }
         }
 
-        public static void eraseDisplayPieceFromConsole(IDisplayPiece targetedForErasing)
+        public static void EraseDisplayPieceFromConsole(IDisplayPiece targetedForErasing)
         {
-            List<Position> positionsToErase = targetedForErasing.getPositions();
+            List<Position> positionsToErase = targetedForErasing.GetPositions();
 
             for (int i = 0; i < positionsToErase.Count; i++)
             {
-                drawSymbolAtPosition(" ", positionsToErase[i],ConsoleColor.Black);
+                DrawSymbolAtPosition(" ", positionsToErase[i], ConsoleColor.Black);
             }
         }
 
-        public static void drawDisplayPieceOnConsole(IDisplayPiece pieceToDraw)
+        public static void DrawDisplayPieceOnConsole(IDisplayPiece pieceToDraw)
         {
-            List<Position> positionsToDraw = pieceToDraw.getPositions();
-            string drawSymbol = pieceToDraw.getDisplaySymbol();
-            ConsoleColor color = pieceToDraw.getColor();
+            List<Position> positionsToDraw = pieceToDraw.GetPositions();
+            string drawSymbol = pieceToDraw.GetDisplaySymbol();
+            ConsoleColor color = pieceToDraw.GetColor();
 
             for (int i = 0; i < positionsToDraw.Count; i++)
             {
-                drawSymbolAtPosition(drawSymbol, positionsToDraw[i],color);
+                DrawSymbolAtPosition(drawSymbol, positionsToDraw[i], color);
             }
         }
 
-        private static void drawSymbolAtPosition(string symbol, Position position, ConsoleColor color)
+        private static void DrawSymbolAtPosition(string symbol, Position position, ConsoleColor color)
         {
-            Console.SetCursorPosition(position.getWidthCoo(), position.getDebthCoo());
+            Console.SetCursorPosition(position.GetWidthCoo(), position.GetDebthCoo());
             Console.ForegroundColor = color;
             Console.Write(symbol);
 
-            //Set to avoid the visual glitches caused by the underscore ("_") ;
+            // Set to avoid the visual glitches caused by the underscore ("_") ;
             Console.SetCursorPosition(0, 41);
-
         }
     }
 }

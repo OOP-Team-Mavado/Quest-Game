@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TheGame.Units
+﻿namespace TheGame.Units
 {
-    interface IUnit
+    public interface IUnit
     {
-        int getHP();
+        int GetHP();
     }
 }

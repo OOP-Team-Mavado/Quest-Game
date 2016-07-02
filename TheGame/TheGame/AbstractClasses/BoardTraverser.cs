@@ -1,28 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using TheGame.BoardInterfaces;
-using TheGame.Utils;
-
-namespace TheGame.AbstractClasses
+﻿namespace TheGame.AbstractClasses
 {
+    using System.Collections.Generic;
+    using TheGame.BoardInterfaces;
+    using TheGame.Utils;
+
     public abstract class BoardTraverser
     {
-        protected IDisplayPiece getPieceAtPosition(Position targetPosition,List<IDisplayPiece> boardPieces)
+        protected IDisplayPiece GetPieceAtPosition(Position targetPosition, List<IDisplayPiece> boardPieces)
         {
             for (int i = 0; i < boardPieces.Count; i++)
             {
-                List<Position> currentBoardPiecePositions = boardPieces[i].getPositions();
+                List<Position> currentBoardPiecePositions = boardPieces[i].GetPositions();
 
                 for (int j = 0; j < currentBoardPiecePositions.Count; j++)
                 {
-                    bool widthCooMatches = targetPosition.getWidthCoo() == currentBoardPiecePositions[j].getWidthCoo();
-                    bool debthCooMatches = targetPosition.getDebthCoo() == currentBoardPiecePositions[j].getDebthCoo();
+                    bool widthCooMatches = targetPosition.GetWidthCoo() == currentBoardPiecePositions[j].GetWidthCoo();
+                    bool debthCooMatches = targetPosition.GetDebthCoo() == currentBoardPiecePositions[j].GetDebthCoo();
 
-                    if(widthCooMatches && debthCooMatches)
+                    if (widthCooMatches && debthCooMatches)
                     {
                         return boardPieces[i];
                     }

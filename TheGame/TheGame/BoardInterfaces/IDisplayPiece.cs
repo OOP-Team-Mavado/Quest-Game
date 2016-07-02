@@ -1,25 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using TheGame.Utils;
-
-namespace TheGame.BoardInterfaces
+﻿namespace TheGame.BoardInterfaces
 {
+    using System;
+    using System.Collections.Generic;
+    using TheGame.Utils;
+
     public interface IDisplayPiece
     {
-         List<Position> getPositions();
+        List<Position> GetPositions();
 
+        int GetID();
 
-         int getID();
+        void SetID(int id);
 
-         void setID(int id);
+        string GetDisplaySymbol();
 
-         string getDisplaySymbol();
-
-         ConsoleColor getColor();
-          
+        ConsoleColor GetColor();
     }
 }

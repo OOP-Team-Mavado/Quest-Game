@@ -1,33 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-using TheGame.Utils;
-using TheGame.BoardPieces;
-
-using TheGame.Factories;
-using TheGame.BoardInterfaces;
-
-namespace TheGame
+﻿namespace TheGame
 {
-    class StartGame
+    using TheGame.BoardInterfaces;
+    using TheGame.Factories;
+
+    public class StartGame
     {
-        static void Main(string[] args)
+        public static void Main()
         {
-
-
-
             GameFactory gameFactory = new GameFactory();
-            IGame game = gameFactory.getGame("MainGame");
-           
+            IGame game = gameFactory.GetGame("MainGame");
 
-            game.startGame();
-
-        
-       
-            
+            game.StartGame();
         }
     }
 }
