@@ -6,6 +6,10 @@
 
     public static class Visualizer
     {
+        /// <summary>
+        /// Draws all elements in the start of the game
+        /// </summary>
+        /// <param name="allPieces"></param>
         public static void DrawEverything(List<IDisplayPiece> allPieces)
         {
             Console.Clear();

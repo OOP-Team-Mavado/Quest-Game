@@ -4,6 +4,7 @@
     using TheGame.BoardInterfaces;
     using TheGame.BoardPieces;
     using TheGame.Games;
+    using TheGame.Helpers;
     using TheGame.Units;
     using TheGame.Utils;
 
@@ -17,15 +18,15 @@
             {
                 MainGame game = new MainGame();
                 Position outerBoxStarterPosition = new Position(0, 0);
-                Box outerBorder = new Box(outerBoxStarterPosition, 80, 40);
+                Box outerBorder = new Box(outerBoxStarterPosition, Constants.BoxWidth, Constants.BoxHeight);
                 outerBorder.SetID(this.UseCurrentID());
                 game.AddBoardElement(outerBorder);
 
                 //// TODO: implement abstract logic for this
-                int outerBoxWidthMiddle = 80 / 2;
-                int outerBoxHeightMiddle = 40 / 2;
-                int innerBoxPreferedWidth = 80 / 10;
-                int innerBoxPreferedHeight = 40 / 10;
+                int outerBoxWidthMiddle = Constants.BoxWidth / 2;
+                int outerBoxHeightMiddle = Constants.BoxHeight / 2;
+                int innerBoxPreferedWidth = Constants.BoxWidth / 10;
+                int innerBoxPreferedHeight = Constants.BoxHeight / 10;
                 int innerBoxStartingWidthCoo = outerBoxWidthMiddle - (innerBoxPreferedWidth / 2);
                 int innerBoxStartingHeightCoo = outerBoxHeightMiddle - (innerBoxPreferedHeight / 2);
 
@@ -35,14 +36,16 @@
                 innerBox.SetID(this.UseCurrentID());
                 game.AddBoardElement(innerBox);
 
-                Position playerStartingPosition = new Position(5, 5);
+                Position playerStartingPosition = new Position(Constants.PlayerStartingX, Constants.PlayerStartingY);
                 List<Position> playerPosition = new List<Position>();
                 playerPosition.Add(playerStartingPosition);
-                Preist player = new Preist(playerPosition);
+                Priest player = new Priest(playerPosition);
                 player.SetID(this.UseCurrentID());
 
                 game.AddBoardElement(player);
 
+                //// TODO: Randomize bombs/quests
+                //// TODO: add more bombs/quests at random
                 Position bombPosition = new Position(10, 10);
                 List<Position> bombPositions = new List<Position>();
                 bombPositions.Add(bombPosition);

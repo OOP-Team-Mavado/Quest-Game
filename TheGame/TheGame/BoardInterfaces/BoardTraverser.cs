@@ -1,4 +1,4 @@
-﻿namespace TheGame.AbstractClasses
+﻿namespace TheGame.BoardInterfaces
 {
     using System.Collections.Generic;
     using TheGame.BoardInterfaces;

@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using TheGame.BoardInterfaces;
+    using TheGame.Helpers;
     using TheGame.Utils;
 
     public abstract class AbstractHero : IUnit, IMovable, IDisplayPiece
@@ -10,7 +11,7 @@
         protected List<Position> position;
         protected int hp;
         protected int id;
-        protected ConsoleColor color = ConsoleColor.Cyan;
+        protected ConsoleColor color = Constants.HeroColor;
         protected string displaySymbol;
 
         public List<Position> GetPositions()

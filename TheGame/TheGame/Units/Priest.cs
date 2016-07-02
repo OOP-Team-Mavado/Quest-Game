@@ -1,14 +1,15 @@
 ﻿namespace TheGame.Units
 {
     using System.Collections.Generic;
+    using TheGame.Helpers;
     using TheGame.Utils;
 
-    public class Preist : AbstractHero
+    public class Priest : AbstractHero
     {
-        public Preist(List<Position> position)
+        public Priest(List<Position> position)
         {
-            this.hp = 5;
-            this.displaySymbol = "P";
+            this.hp = Constants.PriestStartingHp;
+            this.displaySymbol = Constants.PriestDisplaySymbol;
             this.position = position;
         }
 

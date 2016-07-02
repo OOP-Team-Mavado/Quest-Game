@@ -4,13 +4,14 @@
     using System.Collections.Generic;
     using System.Linq;
     using TheGame.BoardInterfaces;
+    using TheGame.Helpers;
     using TheGame.Utils;
 
     public class Box : IDisplayPiece
     {
         private int id;
-        private ConsoleColor color = ConsoleColor.DarkGray;
-        private string displaySymbol = "#";
+        private ConsoleColor boxColor = Constants.BoxColor;
+        private string displaySymbol = Constants.BoxDisplaySymbol;
         private List<Position> topBorder;
         private List<Position> botBorder;
         private List<Position> leftBorder;
@@ -45,7 +46,12 @@
 
         public List<Position> GetPositions()
         {
-            List<Position> allPositions = this.topBorder.Concat(this.botBorder).Concat(this.leftBorder).Concat(this.rightBorder).ToList();
+            List<Position> allPositions = this.topBorder
+                                                .Concat(this.botBorder)
+                                                .Concat(this.leftBorder)
+                                                .Concat(this.rightBorder)
+                                                .ToList();
+
             return allPositions;
         }
 
@@ -61,12 +67,12 @@
 
         public ConsoleColor GetColor()
         {
-            return this.color;
+            return this.boxColor;
         }
 
         private void InitBorders(int length, int height)
         {
-            //// Creating top and bottom borders
+            //// Creating top and bottom borders and adding their position to the borders lists
             for (int i = 0; i < length; i++)
             {
                 Position partOfTopBorder = new Position(this.startingPosition.GetWidthCoo() + i, this.startingPosition.GetDebthCoo());
@@ -75,7 +81,7 @@
                 this.botBorder.Add(partOFBottomBorder);
             }
 
-            //// Creating left and right borders
+            //// Creating left and right borders and adding their position to the borders lists
             for (int i = 0; i < height; i++)
             {
                 Position partOfLeftBorder = new Position(this.startingPosition.GetWidthCoo(), this.startingPosition.GetDebthCoo() + i);

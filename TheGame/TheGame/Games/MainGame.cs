@@ -3,8 +3,8 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using TheGame.AbstractClasses;
     using TheGame.BoardInterfaces;
+    using TheGame.Helpers;
     using TheGame.Units;
     using TheGame.Utils;
 
@@ -27,7 +27,7 @@
             this.gameIsActive = true;
 
             //// TODO set the player starting position somewhere better
-            Position playerStartingPosition = new Position(5, 5);
+            Position playerStartingPosition = new Position(Constants.PlayerStartingX, Constants.PlayerStartingY);
 
             this.player = (AbstractHero)GetPieceAtPosition(playerStartingPosition, this.boardElements);
 
@@ -68,6 +68,12 @@
             this.boardElements.Add(boardElement);
         }
 
+        /// <summary>
+        /// Moves Player to adjasent position
+        /// </summary>
+        /// <param name="player">IDisplayPiece</param>
+        /// <param name="direction">string</param>
+        /// <returns></returns>
         private Position PositionAdjacentToPlayer(IDisplayPiece player, string direction)
         {
             int debthOfAdjacent = player.GetPositions()[0].GetDebthCoo();
@@ -93,10 +99,16 @@
             return new Position(widthOfAdjacent, debthOfAdjacent);
         }
 
+        /// <summary>
+        /// Moves player to position adjacent to him and checks whether new position is interactable
+        /// Adds the Result of the Interactable position to the player score
+        /// </summary>
+        /// <param name="direction">string</param>
         private void TryMovingToDirection(string direction)
         {
             Position adjacentPosition = this.PositionAdjacentToPlayer(this.player, direction);
             IDisplayPiece adjacentPiece = GetPieceAtPosition(adjacentPosition, this.boardElements);
+
             if (adjacentPiece is IInteractable)
             {
                 IInteractable adjacentInteractable = (IInteractable)adjacentPiece;

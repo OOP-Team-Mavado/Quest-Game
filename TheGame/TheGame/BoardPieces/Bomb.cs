@@ -3,13 +3,14 @@
     using System;
     using System.Collections.Generic;
     using TheGame.BoardInterfaces;
+    using TheGame.Helpers;
     using TheGame.Utils;
-
+    
     public class Bomb : IDisplayPiece, IInteractable
     {
         private int id;
-        private ConsoleColor color = ConsoleColor.Red;
-        private string displaySymbol = "B";
+        private ConsoleColor bombColor = Constants.BombColor;
+        private string displaySymbol = Constants.BombDisplaySymbol;
         private List<Position> position;
         private int amountOfDamageItInflicts;
 
@@ -46,7 +47,7 @@
 
         public ConsoleColor GetColor()
         {
-            return this.color;
+            return this.bombColor;
         }
     }
 }
