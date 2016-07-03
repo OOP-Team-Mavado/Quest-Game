@@ -1,4 +1,4 @@
-﻿namespace TheGame.Units
+﻿namespace TheGame.BoardPieces.Units
 {
     using System;
     using System.Collections.Generic;
@@ -29,6 +29,7 @@
             return this.id;
         }
 
+
         public void SetID(int id)
         {
             this.id = id;
@@ -39,6 +40,10 @@
             return this.hp;
         }
 
+        public void SetHP(int newHP)
+        {
+            this.hp = newHP;
+        }
         public abstract void UseSpecial();
 
         public string GetDisplaySymbol()
@@ -50,5 +55,6 @@
         {
             return this.color;
         }
+  
     }
 }

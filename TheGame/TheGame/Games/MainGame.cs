@@ -5,15 +5,19 @@
     using System.Linq;
     using TheGame.BoardInterfaces;
     using TheGame.Helpers;
-    using TheGame.Units;
     using TheGame.Utils;
+    using TheGame.BoardPieces;
+    using TheGame.BoardPieces.Units;
 
     public class MainGame : BoardTraverser, IGame
     {
         private List<IDisplayPiece> boardElements;
         private int playerScore;
-        private bool gameIsActive = false;
+        private int gameStatus;
+        //Game status 0 will mean active game. Game status 1 will mean won game. Game status -1 will mean lost game
         private AbstractHero player;
+        private int minimumWinScore;
+        private Position positionOfBorderAroundWinArea;
 
         public MainGame()
         {
@@ -21,25 +25,45 @@
             //// TODO probably need to instantiate the player and the starting position in the constructor
         }
 
+        public void SetMinimumWinScore(int minimumWinScore)
+        {
+            this.minimumWinScore = minimumWinScore;
+        }
+
+        public void SetInitPositionOfBorderAroundWinArea(Position initPositionOfBorderAroundWinArea)
+        {
+            this.positionOfBorderAroundWinArea = initPositionOfBorderAroundWinArea;
+        }
+
         public int StartGame()
         {
             Visualizer.DrawEverything(this.boardElements);
-            this.gameIsActive = true;
+            this.gameStatus = 0;
 
             //// TODO set the player starting position somewhere better
             Position playerStartingPosition = new Position(Constants.PlayerStartingX, Constants.PlayerStartingY);
 
             this.player = (AbstractHero)GetPieceAtPosition(playerStartingPosition, this.boardElements);
 
-            while (this.gameIsActive)
+            while (this.gameStatus == 0)
             {
+                if(this.playerScore >= minimumWinScore)
+                {
+                    IDisplayPiece borderAroundWinArea = GetPieceAtPosition(this.positionOfBorderAroundWinArea, this.boardElements);
+
+                    if (borderAroundWinArea != null)
+                    {
+                        removeDisplayPiece(borderAroundWinArea);
+                    }
+                }
+
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo userInput = Console.ReadKey();
 
                     if (userInput.Key == ConsoleKey.Q)
                     {
-                        this.gameIsActive = false;
+                        this.gameStatus = -1;
                     }
                     else if (userInput.Key == ConsoleKey.UpArrow)
                     {
@@ -58,7 +82,24 @@
                         this.TryMovingToDirection("right");
                     }
                 }
+
+                if(this.player.GetHP() <= 0)
+                {
+                    this.gameStatus = -1;
+                }
             }
+
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Clear();
+            if(gameStatus == 1)
+            {
+                Console.WriteLine("Congratulations you won!");
+            }
+            else if(gameStatus == -1)
+            {
+                Console.WriteLine("You lost the game");
+            }
+            Console.ReadLine();
 
             return playerScore;
         }
@@ -69,7 +110,7 @@
         }
 
         /// <summary>
-        /// Moves Player to adjasent position
+        /// Returns position adjacent to player
         /// </summary>
         /// <param name="player">IDisplayPiece</param>
         /// <param name="direction">string</param>
@@ -112,13 +153,28 @@
             if (adjacentPiece is IInteractable)
             {
                 IInteractable adjacentInteractable = (IInteractable)adjacentPiece;
-                int idOfInteractable = adjacentPiece.GetID();
+              
                 int interactionResult = adjacentInteractable.GetInteractionResult();
-                this.playerScore += interactionResult;
 
-                //// Removing IInteractable after it's interaction
-                this.boardElements = this.boardElements.Where(x => x.GetID() != idOfInteractable).ToList();
-                Visualizer.EraseDisplayPieceFromConsole(adjacentPiece);
+                if(interactionResult >= Constants.WinIndicator)
+                {
+                    this.gameStatus = 1;
+                }
+                else if(interactionResult < 0)
+                {
+                    int playerHP = this.player.GetHP();
+                    int playerNewHp = playerHP + interactionResult;
+                    this.player.SetHP(playerHP);
+
+                }
+                else
+                {
+                    this.playerScore += interactionResult;
+                }
+                Visualizer.DrawEverything(this.boardElements);
+
+                removeDisplayPiece(adjacentPiece);
+
             }
             else if (adjacentPiece == null)
             {
@@ -131,9 +187,13 @@
             }
         }
 
-        private void MoveAndRedrawBoardPiece(IDisplayPiece boardPiece, List<Position> newPosition)
+        private void removeDisplayPiece(IDisplayPiece displayPiece)
         {
-            //// TODO implement method moveAndRedrawBoardPiece
+            int idOfDisplayPiece = displayPiece.GetID();
+            this.boardElements = this.boardElements.Where(x => x.GetID() != idOfDisplayPiece).ToList();
+            Visualizer.EraseDisplayPieceFromConsole(displayPiece);
+
         }
+
     }
 }

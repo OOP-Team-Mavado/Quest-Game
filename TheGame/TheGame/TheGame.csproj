@@ -48,15 +48,19 @@
     <Compile Include="BoardInterfaces\IMovable.cs" />
     <Compile Include="BoardPieces\Bomb.cs" />
     <Compile Include="BoardPieces\Box.cs" />
+    <Compile Include="BoardPieces\WinArea.cs" />
     <Compile Include="Factories\BorderFactory.cs" />
     <Compile Include="Factories\GameFactory.cs" />
+    <Compile Include="Factories\QuestFactory.cs" />
+    <Compile Include="Factories\WinAreaFactory.cs" />
     <Compile Include="Games\MainGame.cs" />
     <Compile Include="Helpers\Constants.cs" />
+    <Compile Include="BoardPieces\Quests\QuizQuest.cs" />
     <Compile Include="StartGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Units\AbstractHero.cs" />
-    <Compile Include="Units\IUnit.cs" />
-    <Compile Include="Units\Preist.cs" />
+    <Compile Include="BoardPieces\Units\AbstractHero.cs" />
+    <Compile Include="BoardPieces\Units\IUnit.cs" />
+    <Compile Include="BoardPieces\Units\Preist.cs" />
     <Compile Include="Utils\Position.cs" />
     <Compile Include="Utils\Visualizer.cs" />
   </ItemGroup>
