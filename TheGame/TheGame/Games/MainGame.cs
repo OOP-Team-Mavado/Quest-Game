@@ -4,18 +4,19 @@
     using System.Collections.Generic;
     using System.Linq;
     using TheGame.BoardInterfaces;
+    using TheGame.BoardPieces.Units;
     using TheGame.Helpers;
     using TheGame.Utils;
-    using TheGame.BoardPieces;
-    using TheGame.BoardPieces.Units;
 
     public class MainGame : BoardTraverser, IGame
     {
         private List<IDisplayPiece> boardElements;
         private int playerScore;
         private int gameStatus;
-        //Game status 0 will mean active game. Game status 1 will mean won game. Game status -1 will mean lost game
+
+        //// Game status 0 will mean active game. Game status 1 will mean won game. Game status -1 will mean lost game
         private AbstractHero player;
+
         private int minimumWinScore;
         private Position positionOfBorderAroundWinArea;
 
@@ -47,13 +48,13 @@
 
             while (this.gameStatus == 0)
             {
-                if(this.playerScore >= minimumWinScore)
+                if (this.playerScore >= minimumWinScore)
                 {
                     IDisplayPiece borderAroundWinArea = GetPieceAtPosition(this.positionOfBorderAroundWinArea, this.boardElements);
 
                     if (borderAroundWinArea != null)
                     {
-                        removeDisplayPiece(borderAroundWinArea);
+                        RemoveDisplayPiece(borderAroundWinArea);
                     }
                 }
 
@@ -83,7 +84,7 @@
                     }
                 }
 
-                if(this.player.GetHP() <= 0)
+                if (this.player.GetHP() <= 0)
                 {
                     this.gameStatus = -1;
                 }
@@ -91,14 +92,15 @@
 
             Console.ForegroundColor = ConsoleColor.White;
             Console.Clear();
-            if(gameStatus == 1)
+            if (gameStatus == 1)
             {
                 Console.WriteLine("Congratulations you won!");
             }
-            else if(gameStatus == -1)
+            else if (gameStatus == -1)
             {
                 Console.WriteLine("You lost the game");
             }
+
             Console.ReadLine();
 
             return playerScore;
@@ -153,28 +155,27 @@
             if (adjacentPiece is IInteractable)
             {
                 IInteractable adjacentInteractable = (IInteractable)adjacentPiece;
-              
+
                 int interactionResult = adjacentInteractable.GetInteractionResult();
 
-                if(interactionResult >= Constants.WinIndicator)
+                if (interactionResult >= Constants.WinIndicator)
                 {
                     this.gameStatus = 1;
                 }
-                else if(interactionResult < 0)
+                else if (interactionResult < 0)
                 {
                     int playerHP = this.player.GetHP();
                     int playerNewHp = playerHP + interactionResult;
                     this.player.SetHP(playerHP);
-
                 }
                 else
                 {
                     this.playerScore += interactionResult;
                 }
+
                 Visualizer.DrawEverything(this.boardElements);
 
-                removeDisplayPiece(adjacentPiece);
-
+                RemoveDisplayPiece(adjacentPiece);
             }
             else if (adjacentPiece == null)
             {
@@ -187,13 +188,11 @@
             }
         }
 
-        private void removeDisplayPiece(IDisplayPiece displayPiece)
+        private void RemoveDisplayPiece(IDisplayPiece displayPiece)
         {
             int idOfDisplayPiece = displayPiece.GetID();
             this.boardElements = this.boardElements.Where(x => x.GetID() != idOfDisplayPiece).ToList();
             Visualizer.EraseDisplayPieceFromConsole(displayPiece);
-
         }
-
     }
 }

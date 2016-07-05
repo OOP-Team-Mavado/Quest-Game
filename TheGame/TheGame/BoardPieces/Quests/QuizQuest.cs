@@ -2,17 +2,16 @@
 {
     using System;
     using System.Collections.Generic;
-
     using TheGame.BoardInterfaces;
-    using TheGame.Utils;
     using TheGame.Helpers;
+    using TheGame.Utils;
+
     public class QuizQuest : IDisplayPiece, IGame, IInteractable
     {
         private List<Position> positions;
         private int id;
         private string displaySymbol = Constants.QuestDisplaySymbol;
         private ConsoleColor displayColor = ConsoleColor.DarkGreen;
-
 
         public QuizQuest(List<Position> initialPositions)
         {
@@ -62,6 +61,7 @@
                 Console.WriteLine("Wrong.");
                 result = -1;
             }
+
             Console.WriteLine();
             Console.WriteLine("Press any key to continue.");
             Console.ReadLine();

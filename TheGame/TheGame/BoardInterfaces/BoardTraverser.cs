@@ -1,7 +1,6 @@
 ﻿namespace TheGame.BoardInterfaces
 {
     using System.Collections.Generic;
-    using TheGame.BoardInterfaces;
     using TheGame.Utils;
 
     public abstract class BoardTraverser

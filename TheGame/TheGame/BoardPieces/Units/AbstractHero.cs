@@ -29,7 +29,6 @@
             return this.id;
         }
 
-
         public void SetID(int id)
         {
             this.id = id;
@@ -44,6 +43,7 @@
         {
             this.hp = newHP;
         }
+
         public abstract void UseSpecial();
 
         public string GetDisplaySymbol()
@@ -55,6 +55,5 @@
         {
             return this.color;
         }
-  
     }
 }

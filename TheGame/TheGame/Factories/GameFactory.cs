@@ -3,11 +3,10 @@
     using System.Collections.Generic;
     using TheGame.BoardInterfaces;
     using TheGame.BoardPieces;
+    using TheGame.BoardPieces.Units;
     using TheGame.Games;
     using TheGame.Helpers;
-    using TheGame.BoardPieces.Units;
     using TheGame.Utils;
-    using TheGame.BoardPieces.Quests;
 
     public class GameFactory
     {
@@ -42,10 +41,8 @@
                 int winAreaWidth = innerBoxPreferedWidth - 2;
                 int winAreaDebth = innerBoxPreferedHeight - 2;
 
-                IDisplayPiece winArea = WinAreaFactory.getWinArea(winAreaTopLeft, winAreaWidth, winAreaDebth);
+                IDisplayPiece winArea = WinAreaFactory.GetWinArea(winAreaTopLeft, winAreaWidth, winAreaDebth);
                 game.AddBoardElement(winArea);
-
-
 
                 Position playerStartingPosition = new Position(Constants.PlayerStartingX, Constants.PlayerStartingY);
                 List<Position> playerPosition = new List<Position>();
@@ -64,14 +61,11 @@
                 bomb.SetID(this.UseCurrentID());
                 game.AddBoardElement(bomb);
 
-
-                IDisplayPiece quizQuest1 = QuestFactory.getQuest("QuizQuest", UseCurrentID(), 11, 11);
-                IDisplayPiece quizQuest2 = QuestFactory.getQuest("QuizQuest", UseCurrentID(), 12, 12);
+                IDisplayPiece quizQuest1 = QuestFactory.GetQuest("QuizQuest", this.UseCurrentID(), 11, 11);
+                IDisplayPiece quizQuest2 = QuestFactory.GetQuest("QuizQuest", this.UseCurrentID(), 12, 12);
                 game.AddBoardElement(quizQuest1);
                 game.AddBoardElement(quizQuest2);
-                
 
-                
                 game.SetMinimumWinScore(2);
 
                 return game;

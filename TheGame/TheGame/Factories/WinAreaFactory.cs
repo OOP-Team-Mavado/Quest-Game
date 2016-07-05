@@ -1,16 +1,13 @@
 ﻿namespace TheGame.Factories
 {
-    using System;
     using System.Collections.Generic;
-
-    using TheGame.BoardPieces;
     using TheGame.BoardInterfaces;
+    using TheGame.BoardPieces;
     using TheGame.Utils;
-
 
     public class WinAreaFactory
     {
-        public static IDisplayPiece getWinArea(Position startingTopLeftPosition, int width, int debth)
+        public static IDisplayPiece GetWinArea(Position startingTopLeftPosition, int width, int debth)
         {
             List<Position> winPositions = new List<Position>();
             int initialWidthCoo = startingTopLeftPosition.GetWidthCoo();
@@ -28,7 +25,6 @@
             WinArea winArea = new WinArea(winPositions);
 
             return winArea;
-            
         }
     }
 }

@@ -5,7 +5,7 @@
     using TheGame.BoardInterfaces;
     using TheGame.Helpers;
     using TheGame.Utils;
-    
+
     public class Bomb : IDisplayPiece, IInteractable
     {
         private int id;

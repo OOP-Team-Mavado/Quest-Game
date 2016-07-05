@@ -2,10 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
-    
     using TheGame.BoardInterfaces;
-    using TheGame.Utils;
     using TheGame.Helpers;
+    using TheGame.Utils;
 
     public class WinArea : IDisplayPiece, IInteractable
     {
@@ -18,7 +17,6 @@
         {
             this.positions = initialPositions;
         }
-
 
         public int GetInteractionResult()
         {

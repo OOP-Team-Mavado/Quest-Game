@@ -1,6 +1,7 @@
 ﻿namespace TheGame.Helpers
 {
     using System;
+
     public class Constants
     {
         public const string BombDisplaySymbol = "B";
