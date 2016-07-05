@@ -9,6 +9,9 @@
     {
         public static IDisplayPiece GetQuest(string questName, int id, int widthCoo, int debthCoo)
         {
+            //// TODO: make the quests drop items
+            //// TODO: make items that show on the side of the board (3 items are more than enough)
+
             Position initPosition = new Position(widthCoo, debthCoo);
             List<Position> initPositions = new List<Position>();
             initPositions.Add(initPosition);

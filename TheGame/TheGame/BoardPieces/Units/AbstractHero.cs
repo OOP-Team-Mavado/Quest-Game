@@ -13,6 +13,7 @@
         protected int id;
         protected ConsoleColor color = Constants.HeroColor;
         protected string displaySymbol;
+        protected string explanation;
 
         public List<Position> GetPositions()
         {
@@ -54,6 +55,11 @@
         public ConsoleColor GetColor()
         {
             return this.color;
+        }
+
+        public string GetExplanation()
+        {
+            return this.explanation;
         }
     }
 }

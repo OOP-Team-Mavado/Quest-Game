@@ -58,6 +58,7 @@
                     }
                 }
 
+                //// TODO: make every move to remove 0.1 points from the player score and explain it at the begining so that the players think on how they play and there is gamification to the movement as well
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo userInput = Console.ReadKey();

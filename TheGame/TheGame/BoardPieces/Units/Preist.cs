@@ -11,6 +11,7 @@
             this.hp = Constants.PriestStartingHp;
             this.displaySymbol = Constants.PriestDisplaySymbol;
             this.position = position;
+            this.explanation = string.Format("Priests have {0} hp and ...", this.hp);
         }
 
         public override void UseSpecial()
