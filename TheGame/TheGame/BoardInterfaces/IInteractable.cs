@@ -2,6 +2,6 @@
 {
     public interface IInteractable
     {
-        int GetInteractionResult();
+        double GetInteractionResult();
     }
 }

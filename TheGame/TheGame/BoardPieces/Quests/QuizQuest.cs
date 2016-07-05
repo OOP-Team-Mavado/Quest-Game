@@ -12,19 +12,19 @@
         private int id;
         private string displaySymbol = Constants.QuestDisplaySymbol;
         private ConsoleColor displayColor = ConsoleColor.DarkGreen;
-        private Dictionary<string, string> quizes = new Dictionary<string, string>
-        {
-            { "When did Bulgaria join the EU?", "2007" },
-            {"Porsche is a brand of car that originated in what country?", "Germany" },
-            {"Who was the first human to travel into space?", "Yuri Gagarin" },
-            {"The Roman numeral \"D\" stands for what number?", "500" },
-            {"What is the name for the Greek goddess of victory?", "Nike" },
-            {"According to Greek mythology which Gorgon had snakes for hair and could turn onlookers into stone?", "Medusa" },
-            {"The Roman numeral \"L\" stands for what number?", "50" },
-            {"In what year did the Titanic sink?","1912" },
-            {"According to Greek mythology, who was the goddess of beauty?","Aphrodite" },
-            {"Who was the first woman pilot to fly solo across the Atlantic?","Amelia Earhart" }
 
+        private Dictionary<int, List<string>> quizes = new Dictionary<int, List<string>>
+        {
+            { 1, new List<string> { "When did Bulgaria join the EU?", "2007" } },
+            { 2, new List<string> { "Porsche is a brand of car that originated in what country?", "Germany" } },
+            { 3, new List<string> { "Who was the first human to travel into space?", "Yuri Gagarin" } },
+            { 4, new List<string> { "The Roman numeral \"D\" stands for what number?", "500" } },
+            { 5, new List<string> { "What is the name for the Greek goddess of victory?", "Nike" } },
+            { 6, new List<string> { "According to Greek mythology which Gorgon had snakes for hair and could turn onlookers into stone?", "Medusa" } },
+            { 7, new List<string> { "The Roman numeral \"L\" stands for what number?", "50" } },
+            { 8, new List<string> { "In what year did the Titanic sink?", "1912" } },
+            { 9, new List<string> { "According to Greek mythology, who was the goddess of beauty?", "Aphrodite" } },
+            { 10, new List<string> { "Who was the first woman pilot to fly solo across the Atlantic?", "Amelia Earhart" } }
         };
 
         public QuizQuest(List<Position> initialPositions)
@@ -57,32 +57,34 @@
             return this.displayColor;
         }
 
-        public int StartGame()
+        public double StartGame()
         {
+            var questionNumber = Generator.GetRandomNumber(1, 11);
             Console.Clear();
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine("When did Bulgaria join the EU?");
-            string playerAnswer = Console.ReadLine();
-            int result = 0;
 
-            if (playerAnswer == "2007")
+            Console.WriteLine(this.quizes[questionNumber][0]);
+            string playerAnswer = Console.ReadLine();
+            double result = 0;
+
+            if (playerAnswer == this.quizes[questionNumber][1])
             {
-                Console.WriteLine("Correct!");
+                Console.WriteLine(Constants.CorrectMessage);
                 result = 1;
             }
             else
             {
-                Console.WriteLine("Wrong.");
-                result = -1;
+                Console.WriteLine(Constants.WrongMessage);
+                result = -0.5;
             }
 
             Console.WriteLine();
-            Console.WriteLine("Press any key to continue.");
+            Console.WriteLine(Constants.ContinueMessage);
             Console.ReadLine();
             return result;
         }
 
-        public int GetInteractionResult()
+        public double GetInteractionResult()
         {
             return this.StartGame();
         }

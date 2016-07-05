@@ -8,6 +8,9 @@
         public const string BoxDisplaySymbol = "#";
         public const string PriestDisplaySymbol = "P";
         public const string QuestDisplaySymbol = "Q";
+        public const string ContinueMessage = "Press any key to continue.";
+        public const string CorrectMessage = "Correct!";
+        public const string WrongMessage = "Wrong.";
         public const int BoxWidth = 80;
         public const int BoxHeight = 40;
         public const int PlayerStartingX = 5;

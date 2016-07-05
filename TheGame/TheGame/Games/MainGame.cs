@@ -11,7 +11,7 @@
     public class MainGame : BoardTraverser, IGame
     {
         private List<IDisplayPiece> boardElements;
-        private int playerScore;
+        private double playerScore;
         private int gameStatus;
 
         //// Game status 0 will mean active game. Game status 1 will mean won game. Game status -1 will mean lost game
@@ -36,7 +36,7 @@
             this.positionOfBorderAroundWinArea = initPositionOfBorderAroundWinArea;
         }
 
-        public int StartGame()
+        public double StartGame()
         {
             Visualizer.DrawEverything(this.boardElements);
             this.gameStatus = 0;
@@ -156,7 +156,7 @@
             {
                 IInteractable adjacentInteractable = (IInteractable)adjacentPiece;
 
-                int interactionResult = adjacentInteractable.GetInteractionResult();
+                double interactionResult = adjacentInteractable.GetInteractionResult();
 
                 if (interactionResult >= Constants.WinIndicator)
                 {
@@ -165,7 +165,7 @@
                 else if (interactionResult < 0)
                 {
                     int playerHP = this.player.GetHP();
-                    int playerNewHp = playerHP + interactionResult;
+                    double playerNewHp = playerHP + interactionResult;
                     this.player.SetHP(playerHP);
                 }
                 else

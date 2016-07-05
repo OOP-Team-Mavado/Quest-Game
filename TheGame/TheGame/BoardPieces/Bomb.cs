@@ -25,7 +25,7 @@
             this.id = id;
         }
 
-        public int GetInteractionResult()
+        public double GetInteractionResult()
         {
             return this.amountOfDamageItInflicts;
         }

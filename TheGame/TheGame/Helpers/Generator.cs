@@ -6,7 +6,6 @@
 
     public static class Generator
     {
-
         private const string AllSymbols = "0123456789QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm";
         private const string AllDigits = "0123456789";
         private const string AllVowels = "weyuioaWEYUIOA"; // 14
@@ -14,13 +13,13 @@
         private const string PhoneCodeBg = "+35988";
         private const int PhoneNumberLenght = 7;
 
-        private static readonly Random rand = new Random();
-        private static readonly object syncLock = new object();
+        private static readonly Random Rand = new Random();
+        private static readonly object SyncLock = new object();
 
         public static string GenerateRandomName(int min, int max)
         {
             var name = string.Empty;
-            var numberOfSteps = rand.Next(min, max + 1);
+            var numberOfSteps = Rand.Next(min, max + 1);
             var tempName = new StringBuilder();
             var symbolIndex = 0;
             bool isPreviousLetterVowel = false;
@@ -29,7 +28,7 @@
             {
                 if (i == 0)
                 {
-                    symbolIndex = rand.Next(10, AllSymbols.Length - 26);
+                    symbolIndex = Rand.Next(10, AllSymbols.Length - 26);
                     var symbol = AllSymbols[symbolIndex];
                     tempName.Append(symbol);
                     if (AllVowels.Contains(symbol))
@@ -39,14 +38,14 @@
                 }
                 else if (isPreviousLetterVowel)
                 {
-                    symbolIndex = rand.Next(0, AllConsonats.Length / 2);
+                    symbolIndex = Rand.Next(0, AllConsonats.Length / 2);
                     var symbol = AllConsonats[symbolIndex];
                     tempName.Append(symbol);
                     isPreviousLetterVowel = false;
                 }
                 else
                 {
-                    symbolIndex = rand.Next(0, AllVowels.Length / 2);
+                    symbolIndex = Rand.Next(0, AllVowels.Length / 2);
                     var symbol = AllVowels[symbolIndex];
                     tempName.Append(symbol);
                     isPreviousLetterVowel = true;
@@ -68,13 +67,13 @@
             {
                 if (i == 0)
                 {
-                    var digitIndexSecond = rand.Next(0, digitSecondNumber.Length);
+                    var digitIndexSecond = Rand.Next(0, digitSecondNumber.Length);
                     var secondDigit = digitSecondNumber[digitIndexSecond];
                     tempNumber.Append(secondDigit);
                 }
                 else
                 {
-                    var digitIndex = rand.Next(0, AllDigits.Length);
+                    var digitIndex = Rand.Next(0, AllDigits.Length);
                     var digit = AllDigits[digitIndex];
                     tempNumber.Append(digit);
                 }
@@ -95,7 +94,7 @@
             var timeGap = max - min; // time distance between min and max Date
             var timeGapInDays = (int)timeGap.TotalDays; // converts the timeGap, which is in type TimeSpan to days count and converts it to int in order not to have half days and etc.
 
-            var randomTimePasses = rand.Next(0, timeGapInDays); // gets random number of days form 0 to the timeGapInDays
+            var randomTimePasses = Rand.Next(0, timeGapInDays); // gets random number of days form 0 to the timeGapInDays
 
             var resultDate = min.AddDays(randomTimePasses); // adds the random number of days generated to the minimum value allowed
             return resultDate;
@@ -103,11 +102,10 @@
 
         public static int GetRandomNumber(int min = Int32.MinValue, int max = Int32.MaxValue)
         {
-            lock (syncLock)
-            { 
-                return rand.Next(min, max);
+            lock (SyncLock)
+            {
+                return Rand.Next(min, max);
             }
         }
     }
 }
-

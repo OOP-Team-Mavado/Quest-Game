@@ -18,7 +18,7 @@
             this.positions = initialPositions;
         }
 
-        public int GetInteractionResult()
+        public double GetInteractionResult()
         {
             return Constants.WinIndicator;
         }

@@ -19,6 +19,12 @@
                 quest.SetID(id);
                 return quest;
             }
+            else if (questName == "FallingRocks")
+            {
+                FallingRocks quest = new FallingRocks(initPositions);
+                quest.SetID(id);
+                return quest;
+            }
 
             return null;
         }

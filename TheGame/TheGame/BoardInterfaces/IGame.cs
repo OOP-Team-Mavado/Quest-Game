@@ -2,6 +2,6 @@
 {
     public interface IGame
     {
-        int StartGame();
+        double StartGame();
     }
 }

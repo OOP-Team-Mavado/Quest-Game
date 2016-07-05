@@ -62,7 +62,7 @@
                 game.AddBoardElement(bomb);
 
                 IDisplayPiece quizQuest1 = QuestFactory.GetQuest("QuizQuest", this.UseCurrentID(), 11, 11);
-                IDisplayPiece quizQuest2 = QuestFactory.GetQuest("QuizQuest", this.UseCurrentID(), 12, 12);
+                IDisplayPiece quizQuest2 = QuestFactory.GetQuest("FallingRocks", this.UseCurrentID(), 12, 12);
                 game.AddBoardElement(quizQuest1);
                 game.AddBoardElement(quizQuest2);
 
