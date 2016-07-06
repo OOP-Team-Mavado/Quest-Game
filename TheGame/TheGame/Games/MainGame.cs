@@ -1,5 +1,6 @@
 ﻿namespace TheGame.Games
 {
+    using BoardPieces;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -11,6 +12,7 @@
     public class MainGame : BoardTraverser
     {
         private List<IDisplayPiece> boardElements;
+        private List<Position> winAreaPoints;
         private double playerScore;
         private int gameStatus;
 
@@ -23,6 +25,7 @@
         public MainGame()
         {
             this.boardElements = new List<IDisplayPiece>();
+            this.winAreaPoints = new List<Position>();
             //// TODO probably need to instantiate the player and the starting position in the constructor
         }
 
@@ -41,6 +44,9 @@
             Visualizer.DrawEverything(this.boardElements);
             this.gameStatus = 0;
 
+            this.winAreaPoints = ((WinArea)this.boardElements
+                                                .Find(x => x.DisplaySymbol == "W")).GetPositions();
+
             //// TODO set the player starting position somewhere better
             Position playerStartingPosition = new Position(Constants.PlayerStartingX, Constants.PlayerStartingY);
 
@@ -54,7 +60,28 @@
 
                     if (borderAroundWinArea != null)
                     {
-                        RemoveDisplayPiece(borderAroundWinArea);
+                        for (int h = 0; h < borderAroundWinArea.Width; h++)
+                        {
+                            Position partOfTopBorder = new Position(borderAroundWinArea.Position.GetWidthCoo() + h, borderAroundWinArea.Position.GetDebthCoo());
+                            Position partOFBottomBorder = new Position(borderAroundWinArea.Position.GetWidthCoo() + h, borderAroundWinArea.Position.GetDebthCoo() + borderAroundWinArea.Height - 1);
+
+                            Visualizer.DrawSymbolAtPosition(" ", partOfTopBorder, ConsoleColor.Black);
+                            Visualizer.DrawSymbolAtPosition(" ", partOFBottomBorder, ConsoleColor.Black);
+                        }
+
+                        for (int j = 0; j < borderAroundWinArea.Height; j++)
+                        {
+                            Position partOfLeftBorder = new Position(borderAroundWinArea.Position.GetWidthCoo(), borderAroundWinArea.Position.GetDebthCoo() + j);
+                            Position partOfRightBorder = new Position(borderAroundWinArea.Position.GetWidthCoo() + borderAroundWinArea.Width - 1, borderAroundWinArea.Position.GetDebthCoo() + j);
+
+                            Visualizer.DrawSymbolAtPosition(" ", partOfLeftBorder, ConsoleColor.Black);
+                            Visualizer.DrawSymbolAtPosition(" ", partOfRightBorder, ConsoleColor.Black);
+                        }
+
+                        if (borderAroundWinArea != null)
+                        {
+                            RemoveDisplayPiece(borderAroundWinArea);
+                        }
                     }
                 }
 

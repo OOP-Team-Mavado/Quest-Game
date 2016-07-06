@@ -1,5 +1,6 @@
 ﻿namespace TheGame.Utils
 {
+    using BoardPieces;
     using System;
     using System.Collections.Generic;
     using TheGame.BoardInterfaces;
@@ -33,7 +34,16 @@
                         Position partOFBottomBorder = new Position(currentPiece.Position.GetWidthCoo() + h, currentPiece.Position.GetDebthCoo() + currentPiece.Height - 1);
 
                         DrawSymbolAtPosition(displaySymbol, partOfTopBorder, color);
+                        if (currentPiece.DisplaySymbol == "W")
+                        {
+                            displaySymbol = "*";
+                        }
                         DrawSymbolAtPosition(displaySymbol, partOFBottomBorder, color);
+                    }
+
+                    if (currentPiece.DisplaySymbol == "W")
+                    {
+                        displaySymbol = "W";
                     }
 
                     for (int j = 0; j < currentPiece.Height; j++)
@@ -42,6 +52,12 @@
                         Position partOfRightBorder = new Position(currentPiece.Position.GetWidthCoo() + currentPiece.Width - 1, currentPiece.Position.GetDebthCoo() + j);
 
                         DrawSymbolAtPosition(displaySymbol, partOfLeftBorder, color);
+
+                        if (currentPiece.DisplaySymbol == "W")
+                        {
+                            displaySymbol = "*";
+                        }
+
                         DrawSymbolAtPosition(displaySymbol, partOfRightBorder, color);
                     }
                 }
@@ -71,7 +87,7 @@
 
         }
 
-        private static void DrawSymbolAtPosition(string symbol, Position position, ConsoleColor color)
+        public static void DrawSymbolAtPosition(string symbol, Position position, ConsoleColor color)
         {
             Console.SetCursorPosition(position.GetWidthCoo(), position.GetDebthCoo());
             Console.ForegroundColor = color;

@@ -21,8 +21,8 @@
             this.initialPositions = position;
             this.displaySymbol = Constants.WinAreaDisplaySymbol;
             this.color = Constants.WinAreaColor;
-            this.width = Constants.BoxWidth / 10 - 2;
-            this.height = Constants.BoxHeight / 10 - 2;
+            this.width = Constants.BoxWidth / 10 - 1;
+            this.height = Constants.BoxHeight / 10 - 1;
         }
 
         public Position Position
@@ -94,7 +94,7 @@
 
             set
             {
-                width = Constants.BoxWidth / 10 - 2;
+                width = Constants.BoxWidth / 10 - 1;
             }
         }
 
@@ -107,7 +107,7 @@
 
             set
             {
-                height = Constants.BoxHeight / 10 - 2;
+                height = Constants.BoxHeight / 10 - 1;
             }
         }
 

@@ -56,7 +56,6 @@
     <Compile Include="Factories\BorderFactory.cs" />
     <Compile Include="Factories\GameFactory.cs" />
     <Compile Include="Factories\QuestFactory.cs" />
-    <Compile Include="Factories\WinAreaFactory.cs" />
     <Compile Include="Games\MainGame.cs" />
     <Compile Include="Helpers\Constants.cs" />
     <Compile Include="BoardPieces\Quests\QuizQuest.cs" />

@@ -25,10 +25,10 @@
                 //// TODO: implement abstract logic for this
                 int outerBoxWidthMiddle = Constants.BoxWidth / 2;
                 int outerBoxHeightMiddle = Constants.BoxHeight / 2;
-                int innerBoxPreferedWidth = Constants.BoxWidth / 10;
-                int innerBoxPreferedHeight = Constants.BoxHeight / 10;
-                int innerBoxStartingWidthCoo = outerBoxWidthMiddle - (innerBoxPreferedWidth / 2);
-                int innerBoxStartingHeightCoo = outerBoxHeightMiddle - (innerBoxPreferedHeight / 2);
+                int innerBoxPreferedWidth = Constants.BoxWidth / 10 + 1;
+                int innerBoxPreferedHeight = Constants.BoxHeight / 10 + 1;
+                int innerBoxStartingWidthCoo = outerBoxWidthMiddle - (innerBoxPreferedWidth / 2) - 1 ;
+                int innerBoxStartingHeightCoo = outerBoxHeightMiddle - (innerBoxPreferedHeight / 2) - 1;
 
                 Position innerBoxStarterPosition = new Position(innerBoxStartingWidthCoo, innerBoxStartingHeightCoo);
 
@@ -38,10 +38,7 @@
                 game.SetInitPositionOfBorderAroundWinArea(innerBoxStarterPosition);
 
                 Position winAreaTopLeft = new Position(innerBoxStarterPosition.GetWidthCoo() + 1, innerBoxStarterPosition.GetDebthCoo() + 1);
-                int winAreaWidth = innerBoxPreferedWidth - 4;
-                int winAreaDebth = innerBoxPreferedHeight - 4;
-
-                IDisplayPiece winArea = WinAreaFactory.GetWinArea(winAreaTopLeft, winAreaWidth, winAreaDebth);
+                IDisplayPiece winArea = new WinArea(winAreaTopLeft);
                 game.AddBoardElement(winArea);
 
                 Position playerStartingPosition = new Position(Constants.PlayerStartingX, Constants.PlayerStartingY);
