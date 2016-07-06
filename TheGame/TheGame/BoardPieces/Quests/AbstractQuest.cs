@@ -1,27 +1,31 @@
-﻿namespace TheGame.BoardPieces
-{
-    using System;
-    using System.Collections.Generic;
-    using TheGame.BoardInterfaces;
-    using TheGame.Helpers;
-    using TheGame.Utils;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TheGame.BoardInterfaces;
+using TheGame.Helpers;
+using TheGame.Utils;
 
-    public class Bomb : IDisplayPiece, IInteractable
+namespace TheGame.BoardPieces.Quests
+{
+    public abstract class AbstractQuest : IDisplayPiece
     {
+        private Position position;
+        private int hp;
         private int id;
         private int width;
         private int height;
-        private string displaySymbol;
-        private int amountOfDamageItInflicts;
-        private Position position;
+        private double score;
         private ConsoleColor color;
+        private string displaySymbol;
+        private string explanation;
 
-        public Bomb(Position position, int damage)
+        public AbstractQuest(Position position)
         {
             this.position = position;
-            this.amountOfDamageItInflicts = damage;
-            this.displaySymbol = Constants.BombDisplaySymbol;
-            this.color = Constants.BombColor;
+            this.color = Constants.QuestsColor;
+            this.displaySymbol = Constants.QuestDisplaySymbol;
             this.width = 1;
             this.height = 1;
         }
@@ -61,7 +65,7 @@
 
             private set
             {
-                displaySymbol = Constants.BombDisplaySymbol;
+                displaySymbol = Constants.QuestDisplaySymbol;
             }
         }
 
@@ -74,7 +78,7 @@
 
             private set
             {
-                color = Constants.BombColor;
+                color = Constants.QuestsColor;
             }
         }
 
@@ -102,12 +106,6 @@
             {
                 height = 1;
             }
-        }
-
-        public double GetInteractionResult()
-        {
-            //// TODO: implement GetInteractionResult for Bomb
-            throw new NotImplementedException();
         }
     }
 }

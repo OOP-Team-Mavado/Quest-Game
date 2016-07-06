@@ -45,10 +45,13 @@
     <Compile Include="BoardInterfaces\IDisplayPiece.cs" />
     <Compile Include="BoardInterfaces\IGame.cs" />
     <Compile Include="BoardInterfaces\IInteractable.cs" />
-    <Compile Include="BoardInterfaces\IMovable.cs" />
+    <Compile Include="BoardInterfaces\IMoveable.cs" />
     <Compile Include="BoardPieces\Bomb.cs" />
     <Compile Include="BoardPieces\Box.cs" />
+    <Compile Include="BoardPieces\Items\AbstractItem.cs" />
+    <Compile Include="BoardPieces\Quests\AbstractQuest.cs" />
     <Compile Include="BoardPieces\Quests\FallingRocks.cs" />
+    <Compile Include="BoardPieces\Units\Magician.cs" />
     <Compile Include="BoardPieces\WinArea.cs" />
     <Compile Include="Factories\BorderFactory.cs" />
     <Compile Include="Factories\GameFactory.cs" />
@@ -62,7 +65,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BoardPieces\Units\AbstractHero.cs" />
     <Compile Include="BoardPieces\Units\IUnit.cs" />
-    <Compile Include="BoardPieces\Units\Preist.cs" />
+    <Compile Include="BoardPieces\Units\Priest.cs" />
     <Compile Include="Utils\Position.cs" />
     <Compile Include="Utils\Visualizer.cs" />
   </ItemGroup>

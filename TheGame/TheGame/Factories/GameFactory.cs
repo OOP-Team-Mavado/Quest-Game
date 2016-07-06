@@ -19,7 +19,7 @@
                 MainGame game = new MainGame();
                 Position outerBoxStarterPosition = new Position(0, 0);
                 Box outerBorder = new Box(outerBoxStarterPosition, Constants.BoxWidth, Constants.BoxHeight);
-                outerBorder.SetID(this.UseCurrentID());
+                outerBorder.Id = this.UseCurrentID();
                 game.AddBoardElement(outerBorder);
 
                 //// TODO: implement abstract logic for this
@@ -33,22 +33,20 @@
                 Position innerBoxStarterPosition = new Position(innerBoxStartingWidthCoo, innerBoxStartingHeightCoo);
 
                 Box innerBox = new Box(innerBoxStarterPosition, innerBoxPreferedWidth, innerBoxPreferedHeight);
-                innerBox.SetID(this.UseCurrentID());
+                innerBox.Id = this.UseCurrentID();
                 game.AddBoardElement(innerBox);
                 game.SetInitPositionOfBorderAroundWinArea(innerBoxStarterPosition);
 
-                Position winAreaTopLeft = new Position(innerBoxStarterPosition.GetWidthCoo() + 1, innerBoxStarterPosition.GetDebthCoo() + 2);
-                int winAreaWidth = innerBoxPreferedWidth - 2;
-                int winAreaDebth = innerBoxPreferedHeight - 2;
+                Position winAreaTopLeft = new Position(innerBoxStarterPosition.GetWidthCoo() + 1, innerBoxStarterPosition.GetDebthCoo() + 1);
+                int winAreaWidth = innerBoxPreferedWidth - 4;
+                int winAreaDebth = innerBoxPreferedHeight - 4;
 
                 IDisplayPiece winArea = WinAreaFactory.GetWinArea(winAreaTopLeft, winAreaWidth, winAreaDebth);
                 game.AddBoardElement(winArea);
 
                 Position playerStartingPosition = new Position(Constants.PlayerStartingX, Constants.PlayerStartingY);
-                List<Position> playerPosition = new List<Position>();
-                playerPosition.Add(playerStartingPosition);
-                Priest player = new Priest(playerPosition);
-                player.SetID(this.UseCurrentID());
+                Priest player = new Priest(playerStartingPosition);
+                player.Id = this.UseCurrentID();
 
                 game.AddBoardElement(player);
 
@@ -97,21 +95,22 @@
                         default:
                             break;
                     }
-                    
+
                     for (int i = 0; i < 3; i++)
                     {
-                        IDisplayPiece quizQuest = QuestFactory.GetQuest(questNames[Generator.GetRandomNumber(0, questsCount)], this.UseCurrentID(), Generator.GetRandomNumber(xRand1, xRand2), Generator.GetRandomNumber(yRand1,yRand2));
+                        IDisplayPiece quizQuest = QuestFactory.GetQuest(questNames[Generator.GetRandomNumber(0, questsCount)], this.UseCurrentID(), Generator.GetRandomNumber(xRand1, xRand2), Generator.GetRandomNumber(yRand1, yRand2));
                         game.AddBoardElement(quizQuest);
                     }
+
                     for (int k = 0; k < 5; k++)
                     {
                         Position bombPosition = new Position(Generator.GetRandomNumber(xRand1, xRand2), Generator.GetRandomNumber(yRand1, yRand2));
-                        bombPositions.Add(bombPosition);
-                        Bomb bomb = new Bomb(bombPositions, Generator.GetRandomNumber(1,4));
-                        bomb.SetID(this.UseCurrentID());
+                        Bomb bomb = new Bomb(bombPosition, Generator.GetRandomNumber(1, 4));
+                        bomb.Id = this.UseCurrentID();
                         game.AddBoardElement(bomb);
                     }
                 }
+
                 game.SetMinimumWinScore(2);
 
                 return game;

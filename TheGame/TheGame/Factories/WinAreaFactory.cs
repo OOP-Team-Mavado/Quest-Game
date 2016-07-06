@@ -9,20 +9,18 @@
     {
         public static IDisplayPiece GetWinArea(Position startingTopLeftPosition, int width, int debth)
         {
-            List<Position> winPositions = new List<Position>();
+            WinArea winArea = new WinArea(startingTopLeftPosition);
             int initialWidthCoo = startingTopLeftPosition.GetWidthCoo();
             int initialDebthCoo = startingTopLeftPosition.GetDebthCoo();
 
-            for (int i = 0; i < width; i++)
+            for (int i = 0; i < width - 1; i++)
             {
-                for (int j = 0; j < debth; j++)
+                for (int j = 0; j < debth - 1; j++)
                 {
-                    Position winPosition = new Position(initialWidthCoo + i, initialDebthCoo - j);
-                    winPositions.Add(winPosition);
+                    Position winPosition = new Position(initialWidthCoo + i - 1, initialDebthCoo - j - 1);
+                    winArea.WinAreaAddPosition(winPosition);
                 }
             }
-
-            WinArea winArea = new WinArea(winPositions);
 
             return winArea;
         }

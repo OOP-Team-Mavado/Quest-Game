@@ -17,37 +17,58 @@
             for (int i = 0; i < allPieces.Count; i++)
             {
                 IDisplayPiece currentPiece = allPieces[i];
-                string displaySymbol = currentPiece.GetDisplaySymbol();
-                List<Position> positions = currentPiece.GetPositions();
-                ConsoleColor color = currentPiece.GetColor();
+                string displaySymbol = currentPiece.DisplaySymbol;
+                ConsoleColor color = currentPiece.Color;
+                Position position = currentPiece.Position;
 
-                for (int j = 0; j < positions.Count; j++)
+                if (currentPiece.Width == 1 && currentPiece.Height == 1)
                 {
-                    DrawSymbolAtPosition(displaySymbol, positions[j], color);
+                    DrawSymbolAtPosition(displaySymbol, position, color);
                 }
+                else
+                {
+                    for (int h = 0; h < currentPiece.Width; h++)
+                    {
+                        Position partOfTopBorder = new Position(currentPiece.Position.GetWidthCoo() + h, currentPiece.Position.GetDebthCoo());
+                        Position partOFBottomBorder = new Position(currentPiece.Position.GetWidthCoo() + h, currentPiece.Position.GetDebthCoo() + currentPiece.Height - 1);
+
+                        DrawSymbolAtPosition(displaySymbol, partOfTopBorder, color);
+                        DrawSymbolAtPosition(displaySymbol, partOFBottomBorder, color);
+                    }
+
+                    for (int j = 0; j < currentPiece.Height; j++)
+                    {
+                        Position partOfLeftBorder = new Position(currentPiece.Position.GetWidthCoo(), currentPiece.Position.GetDebthCoo() + j);
+                        Position partOfRightBorder = new Position(currentPiece.Position.GetWidthCoo() + currentPiece.Width - 1, currentPiece.Position.GetDebthCoo() + j);
+
+                        DrawSymbolAtPosition(displaySymbol, partOfLeftBorder, color);
+                        DrawSymbolAtPosition(displaySymbol, partOfRightBorder, color);
+                    }
+                }
+
+
+
+
             }
+            //// set to avoid the visual glitches caused by the underscore ("_") ;
+            Console.SetCursorPosition(0, 41);
         }
 
         public static void EraseDisplayPieceFromConsole(IDisplayPiece targetedForErasing)
         {
-            List<Position> positionsToErase = targetedForErasing.GetPositions();
+            Position positionsToErase = targetedForErasing.Position;
+            DrawSymbolAtPosition(" ", positionsToErase, ConsoleColor.Black);
 
-            for (int i = 0; i < positionsToErase.Count; i++)
-            {
-                DrawSymbolAtPosition(" ", positionsToErase[i], ConsoleColor.Black);
-            }
         }
 
         public static void DrawDisplayPieceOnConsole(IDisplayPiece pieceToDraw)
         {
-            List<Position> positionsToDraw = pieceToDraw.GetPositions();
-            string drawSymbol = pieceToDraw.GetDisplaySymbol();
-            ConsoleColor color = pieceToDraw.GetColor();
+            Position positionsToDraw = pieceToDraw.Position;
+            string drawSymbol = pieceToDraw.DisplaySymbol;
+            ConsoleColor color = pieceToDraw.Color;
 
-            for (int i = 0; i < positionsToDraw.Count; i++)
-            {
-                DrawSymbolAtPosition(drawSymbol, positionsToDraw[i], color);
-            }
+            DrawSymbolAtPosition(drawSymbol, positionsToDraw, color);
+
         }
 
         private static void DrawSymbolAtPosition(string symbol, Position position, ConsoleColor color)
@@ -55,9 +76,6 @@
             Console.SetCursorPosition(position.GetWidthCoo(), position.GetDebthCoo());
             Console.ForegroundColor = color;
             Console.Write(symbol);
-
-            // Set to avoid the visual glitches caused by the underscore ("_") ;
-            Console.SetCursorPosition(0, 41);
         }
     }
 }

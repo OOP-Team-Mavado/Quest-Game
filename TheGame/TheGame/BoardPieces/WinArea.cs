@@ -8,44 +8,122 @@
 
     public class WinArea : IDisplayPiece, IInteractable
     {
-        private List<Position> positions;
+        private List<Position> winAreas = new List<Position>();
         private int id;
-        private string displaySymbol = "W";
-        private ConsoleColor displayColor = ConsoleColor.Yellow;
+        private int width;
+        private int height;
+        private string displaySymbol;
+        private Position initialPositions;
+        private ConsoleColor color;
 
-        public WinArea(List<Position> initialPositions)
+        public WinArea(Position position)
         {
-            this.positions = initialPositions;
+            this.initialPositions = position;
+            this.displaySymbol = Constants.WinAreaDisplaySymbol;
+            this.color = Constants.WinAreaColor;
+            this.width = Constants.BoxWidth / 10 - 2;
+            this.height = Constants.BoxHeight / 10 - 2;
+        }
+
+        public Position Position
+        {
+            get
+            {
+                return initialPositions;
+            }
+
+            set
+            {
+                initialPositions = value;
+            }
+        }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
+        public string DisplaySymbol
+        {
+            get
+            {
+                return displaySymbol;
+            }
+
+            private set
+            {
+                displaySymbol = Constants.WinAreaDisplaySymbol;
+            }
+        }
+
+        public ConsoleColor Color
+        {
+            get
+            {
+                return color;
+            }
+
+            private set
+            {
+                color = Constants.WinAreaColor;
+            }
+        }
+
+        public List<Position> WinAreas
+        {
+            get
+            {
+                return winAreas;
+            }
+        }
+
+        public int Width
+        {
+            get
+            {
+                return width;
+            }
+
+            set
+            {
+                width = Constants.BoxWidth / 10 - 2;
+            }
+        }
+
+        public int Height
+        {
+            get
+            {
+                return height;
+            }
+
+            set
+            {
+                height = Constants.BoxHeight / 10 - 2;
+            }
+        }
+
+        public void WinAreaAddPosition(Position initialPositions)
+        {
+            this.winAreas.Add(initialPositions);
+        }
+
+        public List<Position> GetPositions()
+        {
+            return winAreas;
         }
 
         public double GetInteractionResult()
         {
             return Constants.WinIndicator;
-        }
-
-        public List<Utils.Position> GetPositions()
-        {
-            return this.positions;
-        }
-
-        public int GetID()
-        {
-            return this.id;
-        }
-
-        public void SetID(int id)
-        {
-            this.id = id;
-        }
-
-        public string GetDisplaySymbol()
-        {
-            return this.displaySymbol;
-        }
-
-        public ConsoleColor GetColor()
-        {
-            return this.displayColor;
         }
     }
 }

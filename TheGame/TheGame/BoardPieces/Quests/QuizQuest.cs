@@ -6,12 +6,9 @@
     using TheGame.Helpers;
     using TheGame.Utils;
 
-    public class QuizQuest : IDisplayPiece, IGame, IInteractable
+    public class QuizQuest : AbstractQuest, IGame, IInteractable
     {
-        private List<Position> positions;
-        private int id;
-        private string displaySymbol = Constants.QuestDisplaySymbol;
-        private ConsoleColor displayColor = ConsoleColor.DarkGreen;
+        private Position position;
 
         private Dictionary<int, List<string>> quizes = new Dictionary<int, List<string>>
         {
@@ -27,34 +24,10 @@
             { 10, new List<string> { "Who was the first woman pilot to fly solo across the Atlantic?", "Amelia Earhart" } }
         };
 
-        public QuizQuest(List<Position> initialPositions)
+        public QuizQuest(Position position)
+            : base(position)
         {
-            this.positions = initialPositions;
-        }
-
-        public List<Position> GetPositions()
-        {
-            return this.positions;
-        }
-
-        public int GetID()
-        {
-            return this.id;
-        }
-
-        public void SetID(int id)
-        {
-            this.id = id;
-        }
-
-        public string GetDisplaySymbol()
-        {
-            return this.displaySymbol;
-        }
-
-        public ConsoleColor GetColor()
-        {
-            return this.displayColor;
+            this.position = position;
         }
 
         public double StartGame()

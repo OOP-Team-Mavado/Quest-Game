@@ -2,64 +2,174 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using TheGame.BoardInterfaces;
     using TheGame.Helpers;
     using TheGame.Utils;
 
-    public abstract class AbstractHero : IUnit, IMovable, IDisplayPiece
+    public abstract class AbstractHero : IUnit, IDisplayPiece, IMoveable
     {
-        protected List<Position> position;
-        protected int hp;
-        protected int id;
-        protected ConsoleColor color = Constants.HeroColor;
-        protected string displaySymbol;
-        protected string explanation;
+        private Position position;
+        private int hp;
+        private int id;
+        private int width;
+        private int height;
+        private double score;
+        private ConsoleColor color;
+        private string displaySymbol;
+        private string explanation;
 
-        public List<Position> GetPositions()
+        public AbstractHero(Position position)
         {
-            return this.position;
+            this.position = position;
+            this.color = Constants.HeroColor;
+            this.width = 1;
+            this.height = 1;
         }
 
-        public void SetPosition(List<Position> newPosition)
+        public Position Position
         {
-            this.position = newPosition;
+            get
+            {
+                return position;
+            }
+
+            set
+            {
+                position = value;
+            }
         }
 
-        public int GetID()
+        public int Id
         {
-            return this.id;
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
         }
 
-        public void SetID(int id)
+        public int Hp
         {
-            this.id = id;
+            get
+            {
+                return hp;
+            }
+
+            set
+            {
+                hp = value;
+            }
         }
 
-        public int GetHP()
+        public string DisplaySymbol
         {
-            return this.hp;
+            get
+            {
+                return displaySymbol;
+            }
+
+            protected set
+            {
+                displaySymbol = value;
+            }
         }
 
-        public void SetHP(int newHP)
+        public string Explanation
         {
-            this.hp = newHP;
+            get
+            {
+                return explanation;
+            }
+
+            set
+            {
+                explanation = value;
+            }
         }
 
-        public abstract void UseSpecial();
-
-        public string GetDisplaySymbol()
+        public ConsoleColor Color
         {
-            return this.displaySymbol;
+            get
+            {
+                return color;
+            }
+
+            set
+            {
+                color = Constants.HeroColor;
+            }
         }
 
-        public ConsoleColor GetColor()
+        public double Score
         {
-            return this.color;
+            get
+            {
+                return score;
+            }
+
+            set
+            {
+                score = value;
+            }
         }
 
-        public string GetExplanation()
+        public int Width
         {
-            return this.explanation;
+            get
+            {
+                return width;
+            }
+
+            set
+            {
+                width = 1;
+            }
+        }
+
+        public int Height
+        {
+            get
+            {
+                return height;
+            }
+
+            set
+            {
+                height = 1;
+            }
+        }
+
+        public abstract void UseSpecialSkill();
+
+        public abstract void UseSpecialItem(string itemType, string heroType);
+
+        public string Move(ConsoleKeyInfo userInput)
+        {
+            if (userInput.Key == ConsoleKey.UpArrow)
+            {
+                return "up";
+            }
+            else if (userInput.Key == ConsoleKey.DownArrow)
+            {
+                return "down";
+            }
+            else if (userInput.Key == ConsoleKey.LeftArrow)
+            {
+                return "left";
+            }
+            else if (userInput.Key == ConsoleKey.RightArrow)
+            {
+                return "right";
+            }
+            else
+            {
+                return "Q";
+            }
         }
     }
 }

@@ -8,7 +8,7 @@
     using TheGame.Helpers;
     using TheGame.Utils;
 
-    public class MainGame : BoardTraverser, IGame
+    public class MainGame : BoardTraverser
     {
         private List<IDisplayPiece> boardElements;
         private double playerScore;
@@ -36,7 +36,7 @@
             this.positionOfBorderAroundWinArea = initPositionOfBorderAroundWinArea;
         }
 
-        public double StartGame()
+        public override double StartGame()
         {
             Visualizer.DrawEverything(this.boardElements);
             this.gameStatus = 0;
@@ -67,25 +67,13 @@
                     {
                         this.gameStatus = -1;
                     }
-                    else if (userInput.Key == ConsoleKey.UpArrow)
+                    else
                     {
-                        this.TryMovingToDirection("up");
-                    }
-                    else if (userInput.Key == ConsoleKey.DownArrow)
-                    {
-                        this.TryMovingToDirection("down");
-                    }
-                    else if (userInput.Key == ConsoleKey.LeftArrow)
-                    {
-                        this.TryMovingToDirection("left");
-                    }
-                    else if (userInput.Key == ConsoleKey.RightArrow)
-                    {
-                        this.TryMovingToDirection("right");
+                        this.TryMovingToDirection(this.player.Move(userInput));
                     }
                 }
 
-                if (this.player.GetHP() <= 0)
+                if (this.player.Hp <= 0)
                 {
                     this.gameStatus = -1;
                 }
@@ -120,8 +108,8 @@
         /// <returns></returns>
         private Position PositionAdjacentToPlayer(IDisplayPiece player, string direction)
         {
-            int debthOfAdjacent = player.GetPositions()[0].GetDebthCoo();
-            int widthOfAdjacent = player.GetPositions()[0].GetWidthCoo();
+            int debthOfAdjacent = player.Position.GetDebthCoo();
+            int widthOfAdjacent = player.Position.GetWidthCoo();
 
             if (direction.ToLower() == "up")
             {
@@ -165,9 +153,9 @@
                 }
                 else if (interactionResult < 0)
                 {
-                    int playerHP = this.player.GetHP();
+                    int playerHP = this.player.Hp;
                     double playerNewHp = playerHP + interactionResult;
-                    this.player.SetHP(playerHP);
+                    this.player.Hp = playerHP;
                 }
                 else
                 {
@@ -182,17 +170,15 @@
             {
                 //// Moving player
                 Visualizer.EraseDisplayPieceFromConsole(this.player);
-                List<Position> newPosition = new List<Position>();
-                newPosition.Add(adjacentPosition);
-                this.player.SetPosition(newPosition);
-                Visualizer.DrawDisplayPieceOnConsole(this.player);
+                this.player.Position = adjacentPosition;
+                Visualizer.DrawDisplayPieceOnConsole(player);
             }
         }
 
         private void RemoveDisplayPiece(IDisplayPiece displayPiece)
         {
-            int idOfDisplayPiece = displayPiece.GetID();
-            this.boardElements = this.boardElements.Where(x => x.GetID() != idOfDisplayPiece).ToList();
+            int idOfDisplayPiece = displayPiece.Id;
+            this.boardElements = this.boardElements.Where(x => x.Id != idOfDisplayPiece).ToList();
             Visualizer.EraseDisplayPieceFromConsole(displayPiece);
         }
     }

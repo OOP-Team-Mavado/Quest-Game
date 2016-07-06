@@ -1,26 +1,27 @@
 ﻿namespace TheGame.BoardInterfaces
 {
+    using System;
     using System.Collections.Generic;
     using TheGame.Utils;
 
-    public abstract class BoardTraverser
+    public abstract class BoardTraverser : IGame
     {
+        public abstract double StartGame();
+
         protected IDisplayPiece GetPieceAtPosition(Position targetPosition, List<IDisplayPiece> boardPieces)
         {
             for (int i = 0; i < boardPieces.Count; i++)
             {
-                List<Position> currentBoardPiecePositions = boardPieces[i].GetPositions();
+                Position currentBoardPiecePosition = boardPieces[i].Position;
 
-                for (int j = 0; j < currentBoardPiecePositions.Count; j++)
+                bool widthCooMatches = targetPosition.GetWidthCoo() == currentBoardPiecePosition.GetWidthCoo();
+                bool debthCooMatches = targetPosition.GetDebthCoo() == currentBoardPiecePosition.GetDebthCoo();
+
+                if (widthCooMatches && debthCooMatches)
                 {
-                    bool widthCooMatches = targetPosition.GetWidthCoo() == currentBoardPiecePositions[j].GetWidthCoo();
-                    bool debthCooMatches = targetPosition.GetDebthCoo() == currentBoardPiecePositions[j].GetDebthCoo();
-
-                    if (widthCooMatches && debthCooMatches)
-                    {
-                        return boardPieces[i];
-                    }
+                    return boardPieces[i];
                 }
+
             }
 
             return null;

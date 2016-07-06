@@ -6,14 +6,38 @@
 
     public interface IDisplayPiece
     {
-        List<Position> GetPositions();
+        Position Position
+        {
+            get;
+            set;
+        }
 
-        int GetID();
+        string DisplaySymbol
+        {
+            get;
+        }
 
-        void SetID(int id);
+        ConsoleColor Color
+        {
+            get;
+        }
 
-        string GetDisplaySymbol();
+        int Id
+        {
+            get;
+            set;
+        }
 
-        ConsoleColor GetColor();
+        int Width
+        {
+            get;
+            set;
+        }
+
+        int Height
+        {
+            get;
+            set;
+        }
     }
 }

@@ -26,8 +26,10 @@ initial skeleton by iRusev90
 * At least 1 structure (in the falling rocks quiz)
 * At least 1 design pattern (Singleton for the random number generator, Factory for the game and the quizes)
 
-##### from optional ##### 
+##### from optional #####
+* Static members (fields, properties, constructor, etc.)
 * Constants
+* Lambda expressions and LINQ (RemoveDisplayPiece)
 
 ### Requirements NOT covered: ###
 ##### from general #####
@@ -39,10 +41,8 @@ initial skeleton by iRusev90
 * At least 1 event (with subscribers)
 * Provide a class diagram (to visualize all types)
 
-##### from optional ##### 
-* Static members (fields, properties, constructor, etc.)
+##### from optional #####
 * generic types, indexers, operators overloading
-* Lambda expressions and LINQ
 * Implementation of IEnumerable<T>, ICloneable, ToString() override
 * Namespaces (if your classes are too many)
 * User interface (UI) – console, graphical, web or mobile

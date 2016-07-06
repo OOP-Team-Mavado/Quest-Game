@@ -1,9 +1,9 @@
 ﻿namespace TheGame.BoardPieces.Units
 {
+    using System;
     public interface IUnit
     {
-        int GetHP();
-
-        void SetHP(int newHP);
+        void UseSpecialSkill();
+        void UseSpecialItem(string itemType, string heroType);
     }
 }

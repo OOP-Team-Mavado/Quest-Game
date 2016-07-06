@@ -7,20 +7,25 @@
 
     public class Magician : AbstractHero
     {
-
-        public Magician(List<Position> position)
+        public Magician(Position position)
+             : base(position)
         {
             //// TODO: add something that makes Priest and Magician different. 
             //// TODO: add more classes
-            this.hp = Constants.MagicianStartingHp;
-            this.displaySymbol = Constants.MagicianDisplaySymbol;
-            this.position = position;
-            this.explanation = string.Format("Magicians have {0} hp and ...", this.hp);
+            this.Hp = Constants.MagicianStartingHp;
+            this.DisplaySymbol = Constants.MagicianDisplaySymbol;
+            this.Position = position;
+            this.Explanation = string.Format("Magicians have {0} hp and ...", this.Hp);
         }
 
-        public override void UseSpecial()
+        public override void UseSpecialItem(string itemType, string heroType)
         {
-            this.hp += 1;
+            throw new NotImplementedException();
+        }
+
+        public override void UseSpecialSkill()
+        {
+            this.Hp += 1;
         }
     }
 }

@@ -1,21 +1,28 @@
-﻿namespace TheGame.Units
+﻿namespace TheGame.BoardPieces.Units
 {
-    using System.Collections.Generic;
+    using System;
     using TheGame.Helpers;
     using TheGame.Utils;
 
     public class Priest : AbstractHero
     {
-        public Priest(List<Position> position)
+        public Priest(Position position)
+            : base(position)
         {
-            this.hp = Constants.PriestStartingHp;
-            this.displaySymbol = Constants.PriestDisplaySymbol;
-            this.position = position;
+            this.Hp = Constants.PriestStartingHp;
+            this.DisplaySymbol = Constants.PriestDisplaySymbol;
+            this.Position = position;
+            this.Explanation = string.Format("Priests have {0} hp and ...", this.Hp);
         }
 
-        public override void UseSpecial()
+        public override void UseSpecialItem(string itemType, string heroType)
         {
-            this.hp += 1;
+            throw new NotImplementedException();
+        }
+
+        public override void UseSpecialSkill()
+        {
+            throw new NotImplementedException();
         }
     }
 }

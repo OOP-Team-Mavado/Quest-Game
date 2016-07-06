@@ -10,8 +10,10 @@
     public class Box : IDisplayPiece
     {
         private int id;
-        private ConsoleColor boxColor = Constants.BoxColor;
-        private string displaySymbol = Constants.BoxDisplaySymbol;
+        private int width;
+        private int height;
+        private ConsoleColor color;
+        private string displaySymbol;
         private List<Position> topBorder;
         private List<Position> botBorder;
         private List<Position> leftBorder;
@@ -26,11 +28,86 @@
             this.leftBorder = new List<Position>();
             this.rightBorder = new List<Position>();
             this.InitBorders(length, height);
+            this.displaySymbol = Constants.BoxDisplaySymbol;
+            this.color = Constants.BoxColor;
+            this.width = length;
+            this.height = height;
         }
 
-        public void SetID(int id)
+        public Position Position
         {
-            this.id = id;
+            get
+            {
+                return startingPosition;
+            }
+
+            set
+            {
+                startingPosition = value;
+            }
+        }
+
+        public string DisplaySymbol
+        {
+            get
+            {
+                return displaySymbol;
+            }
+            private set
+            {
+                displaySymbol = Constants.BoxDisplaySymbol;
+            }
+        }
+
+        public ConsoleColor Color
+        {
+            get
+            {
+                return color;
+            }
+            private set
+            {
+                color = Constants.BoxColor;
+            }
+        }
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
+        public int Width
+        {
+            get
+            {
+                return width;
+            }
+
+            set
+            {
+                width = value;
+            }
+        }
+
+        public int Height
+        {
+            get
+            {
+                return height;
+            }
+
+            set
+            {
+                height = value;
+            }
         }
 
         public List<List<Position>> GetAllBorders()
@@ -53,21 +130,6 @@
                                                 .ToList();
 
             return allPositions;
-        }
-
-        public int GetID()
-        {
-            return this.id;
-        }
-
-        public string GetDisplaySymbol()
-        {
-            return this.displaySymbol;
-        }
-
-        public ConsoleColor GetColor()
-        {
-            return this.boxColor;
         }
 
         private void InitBorders(int length, int height)

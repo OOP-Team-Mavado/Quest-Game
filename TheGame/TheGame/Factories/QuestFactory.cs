@@ -13,19 +13,17 @@
             //// TODO: make items that show on the side of the board (3 items are more than enough)
 
             Position initPosition = new Position(widthCoo, debthCoo);
-            List<Position> initPositions = new List<Position>();
-            initPositions.Add(initPosition);
 
             if (questName == "QuizQuest")
             {
-                QuizQuest quest = new QuizQuest(initPositions);
-                quest.SetID(id);
+                QuizQuest quest = new QuizQuest(initPosition);
+                quest.Id = id;
                 return quest;
             }
             else if (questName == "FallingRocks")
             {
-                FallingRocks quest = new FallingRocks(initPositions);
-                quest.SetID(id);
+                FallingRocks quest = new FallingRocks(initPosition);
+                quest.Id = id;
                 return quest;
             }
 
