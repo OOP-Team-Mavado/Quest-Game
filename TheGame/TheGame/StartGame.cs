@@ -2,12 +2,13 @@
 {
     using TheGame.BoardInterfaces;
     using TheGame.Factories;
+    using System;
 
     public class StartGame
     {
         public static void Main()
         {
-            //// TODO: set console dimensions to fit the field so we shouldn't scroll when playing the game
+            Console.SetWindowSize(80, 44);
             //// TODO: make initial screen where to choose Priest or Magician
             //// TODO: explain how the game works after selection of Priest or Magician
             GameFactory gameFactory = new GameFactory();
