@@ -65,8 +65,10 @@
                 var questNames = new List<string>
                 {
                     "QuizQuest",
-                    "FallingRocks"
+                    "FallingRocks",
+                    "GuessTheNumber"
                 };
+
                 var questsCount = questNames.Count;
 
                 for (int j = 0; j < 4; j++)

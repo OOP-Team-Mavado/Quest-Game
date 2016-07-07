@@ -107,5 +107,12 @@ namespace TheGame.BoardPieces.Quests
                 height = 1;
             }
         }
+
+        public abstract double StartGame();
+
+        public double GetInteractionResult()
+        {
+            return this.StartGame();
+        }
     }
 }

@@ -47,7 +47,6 @@
             this.winAreaPoints = ((WinArea)this.boardElements
                                                 .Find(x => x.DisplaySymbol == "W")).GetPositions();
 
-            //// TODO set the player starting position somewhere better
             Position playerStartingPosition = new Position(Constants.PlayerStartingX, Constants.PlayerStartingY);
             this.player = (AbstractHero)GetPieceAtPosition(playerStartingPosition, this.boardElements);
 

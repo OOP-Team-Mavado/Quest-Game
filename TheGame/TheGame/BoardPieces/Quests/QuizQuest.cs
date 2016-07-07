@@ -30,7 +30,7 @@
             this.position = position;
         }
 
-        public double StartGame()
+        public override double StartGame()
         {
             var questionNumber = Generator.GetRandomNumber(1, 11);
             Console.Clear();
@@ -55,11 +55,6 @@
             Console.WriteLine(Constants.ContinueMessage);
             Console.ReadLine();
             return result;
-        }
-
-        public double GetInteractionResult()
-        {
-            return this.StartGame();
         }
     }
 }
