@@ -51,6 +51,7 @@
     <Compile Include="BoardPieces\Items\AbstractItem.cs" />
     <Compile Include="BoardPieces\Quests\AbstractQuest.cs" />
     <Compile Include="BoardPieces\Quests\FallingRocks.cs" />
+    <Compile Include="BoardPieces\Quests\FlappyBirdQuest.cs" />
     <Compile Include="BoardPieces\Units\Magician.cs" />
     <Compile Include="BoardPieces\WinArea.cs" />
     <Compile Include="Factories\BorderFactory.cs" />

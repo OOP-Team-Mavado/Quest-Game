@@ -63,9 +63,9 @@ namespace TheGame.BoardPieces.Quests
                 return displaySymbol;
             }
 
-            private set
+            protected set
             {
-                displaySymbol = Constants.QuestDisplaySymbol;
+                displaySymbol = value;
             }
         }
 

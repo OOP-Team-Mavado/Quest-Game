@@ -53,7 +53,8 @@
                 var questNames = new List<string>
                 {
                     "QuizQuest",
-                    "FallingRocks"
+                    "FallingRocks",
+                    "FlappyBird"
                 };
                 var questsCount = questNames.Count;
 
@@ -95,7 +96,12 @@
 
                     for (int i = 0; i < 3; i++)
                     {
-                        IDisplayPiece quizQuest = QuestFactory.GetQuest(questNames[Generator.GetRandomNumber(0, questsCount)], this.UseCurrentID(), Generator.GetRandomNumber(xRand1, xRand2), Generator.GetRandomNumber(yRand1, yRand2));
+                        IDisplayPiece quizQuest = QuestFactory.GetQuest(
+                            questNames[Generator.GetRandomNumber(0, questsCount)], 
+                            this.UseCurrentID(), 
+                            Generator.GetRandomNumber(xRand1, xRand2), 
+                            Generator.GetRandomNumber(yRand1, yRand2));
+
                         game.AddBoardElement(quizQuest);
                     }
 
