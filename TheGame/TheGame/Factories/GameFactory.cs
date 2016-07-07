@@ -42,7 +42,19 @@
                 game.AddBoardElement(winArea);
 
                 Position playerStartingPosition = new Position(Constants.PlayerStartingX, Constants.PlayerStartingY);
-                Priest player = new Priest(playerStartingPosition);
+
+                AbstractHero player;
+                int randNum = Generator.GetRandomNumber(1, 3);
+                if (randNum == 1)
+                {
+                    player = new Priest(playerStartingPosition);
+                }
+                else
+                {
+                    player = new Magician(playerStartingPosition);
+                }
+
+                
                 player.Id = this.UseCurrentID();
 
                 game.AddBoardElement(player);
