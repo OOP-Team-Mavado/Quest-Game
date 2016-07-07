@@ -91,6 +91,8 @@
             Console.SetCursorPosition(position.GetWidthCoo(), position.GetDebthCoo());
             Console.ForegroundColor = color;
             Console.Write(symbol);
+
+
             //// set to avoid the visual glitches caused by the underscore ("_") ;
             Console.SetCursorPosition(0, 41);
         }
