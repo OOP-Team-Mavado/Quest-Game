@@ -16,11 +16,13 @@
         {
             if (gameName == "MainGame")
             {
+
+
                 MainGame game = new MainGame();
-                Position outerBoxStarterPosition = new Position(0, 0);
-                Box outerBorder = new Box(outerBoxStarterPosition, Constants.BoxWidth, Constants.BoxHeight);
-                outerBorder.Id = this.UseCurrentID();
-                game.AddBoardElement(outerBorder);
+                Position startingPositionOfOuterBorder = new Position(0,0);
+                addBoxToGame(game, startingPositionOfOuterBorder, Constants.BoxWidth, Constants.BoxHeight);
+
+           
 
                 //// TODO: implement abstract logic for this
                 int outerBoxWidthMiddle = Constants.BoxWidth / 2;
@@ -31,10 +33,7 @@
                 int innerBoxStartingHeightCoo = outerBoxHeightMiddle - (innerBoxPreferedHeight / 2) - 1;
 
                 Position innerBoxStarterPosition = new Position(innerBoxStartingWidthCoo, innerBoxStartingHeightCoo);
-
-                Box innerBox = new Box(innerBoxStarterPosition, innerBoxPreferedWidth, innerBoxPreferedHeight);
-                innerBox.Id = this.UseCurrentID();
-                game.AddBoardElement(innerBox);
+                addBoxToGame(game, innerBoxStarterPosition, innerBoxPreferedWidth, innerBoxPreferedHeight);
                 game.SetInitPositionOfBorderAroundWinArea(innerBoxStarterPosition);
 
                 Position winAreaTopLeft = new Position(innerBoxStarterPosition.GetWidthCoo() + 1, innerBoxStarterPosition.GetDebthCoo() + 1);
@@ -128,7 +127,7 @@
                     }
                 }
 
-                game.SetMinimumWinScore(2);
+                game.SetMinimumWinScore(1);
 
                 return game;
             }
@@ -136,6 +135,40 @@
             IGame game1 = null;
 
             return game1;
+        }
+
+        private void addBoxToGame(MainGame game, Position startingPosition, int width, int height)
+        {
+
+            int startingWidth = startingPosition.GetWidthCoo();
+            int startingDebt = startingPosition.GetDebthCoo();
+            int depricatedUse = 1;
+            for (int i = 0; i < width; i++)
+            {
+                Position currentPositionOfPartOfTopBorder = new Position(startingWidth + i, startingDebt);
+                Box partOfTopBorder = new Box(currentPositionOfPartOfTopBorder, depricatedUse, depricatedUse);
+                partOfTopBorder.Id = this.UseCurrentID();
+
+                Position currentPositionOFPartOfBotBorder = new Position(startingWidth + i, startingDebt + height);
+                Box partOfBotBorder = new Box(currentPositionOFPartOfBotBorder, depricatedUse, depricatedUse);
+                partOfBotBorder.Id = this.UseCurrentID();
+                game.AddBoardElement(partOfTopBorder);
+                game.AddBoardElement(partOfBotBorder);
+            }
+
+            for (int i = 0; i < height - 1; i++)
+            {
+                Position currentPositionOfPartOfLeftBorder = new Position(startingWidth, startingDebt + 1 + i);
+                Box partOfLeftBorder = new Box(currentPositionOfPartOfLeftBorder, depricatedUse, depricatedUse);
+                partOfLeftBorder.Id = this.UseCurrentID();
+
+                Position currentPositionOfPartOfRightBorder = new Position(startingWidth + width - 1, startingDebt + 1 + i);
+                Box partOfRightBorder = new Box(currentPositionOfPartOfRightBorder, depricatedUse, depricatedUse);
+                partOfRightBorder.Id = this.UseCurrentID();
+
+                game.AddBoardElement(partOfLeftBorder);
+                game.AddBoardElement(partOfRightBorder);
+            }
         }
 
         private int UseCurrentID()
