@@ -54,33 +54,16 @@
             {
                 if (this.playerScore >= minimumWinScore)
                 {
-                    IDisplayPiece borderAroundWinArea = GetPieceAtPosition(this.positionOfBorderAroundWinArea, this.boardElements);
+                    int widthCooOfDoor = this.positionOfBorderAroundWinArea.GetWidthCoo();
+                    int debtCooOfDoor = this.positionOfBorderAroundWinArea.GetDebthCoo() + 1;
+                    Position positionOfDoorToWin = new Position(widthCooOfDoor, debtCooOfDoor);
 
-                    if (borderAroundWinArea != null)
+                    IDisplayPiece doorToWinArea = GetPieceAtPosition(positionOfDoorToWin, this.boardElements);
+                    if (doorToWinArea != null)
                     {
-                        for (int h = 0; h < borderAroundWinArea.Width; h++)
-                        {
-                            Position partOfTopBorder = new Position(borderAroundWinArea.Position.GetWidthCoo() + h, borderAroundWinArea.Position.GetDebthCoo());
-                            Position partOFBottomBorder = new Position(borderAroundWinArea.Position.GetWidthCoo() + h, borderAroundWinArea.Position.GetDebthCoo() + borderAroundWinArea.Height - 1);
-
-                            Visualizer.DrawSymbolAtPosition(" ", partOfTopBorder, ConsoleColor.Black);
-                            Visualizer.DrawSymbolAtPosition(" ", partOFBottomBorder, ConsoleColor.Black);
-                        }
-
-                        for (int j = 0; j < borderAroundWinArea.Height; j++)
-                        {
-                            Position partOfLeftBorder = new Position(borderAroundWinArea.Position.GetWidthCoo(), borderAroundWinArea.Position.GetDebthCoo() + j);
-                            Position partOfRightBorder = new Position(borderAroundWinArea.Position.GetWidthCoo() + borderAroundWinArea.Width - 1, borderAroundWinArea.Position.GetDebthCoo() + j);
-
-                            Visualizer.DrawSymbolAtPosition(" ", partOfLeftBorder, ConsoleColor.Black);
-                            Visualizer.DrawSymbolAtPosition(" ", partOfRightBorder, ConsoleColor.Black);
-                        }
-
-                        if (borderAroundWinArea != null)
-                        {
-                            RemoveDisplayPiece(borderAroundWinArea);
-                        }
+                        RemoveDisplayPiece(doorToWinArea);
                     }
+                    
                 }
 
                 //// TODO: make every move to remove 0.1 points from the player score and explain it at the begining so that the players think on how they play and there is gamification to the movement as well
