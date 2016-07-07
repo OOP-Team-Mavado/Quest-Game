@@ -17,7 +17,7 @@
             this.position = position;
         }
 
-        public double StartGame()
+        public override double StartGame()
         {
             int rockCount = 0;
             int sleepTime = 0;
@@ -112,11 +112,6 @@
                     return score;
                 }
             }
-        }
-
-        public double GetInteractionResult()
-        {
-            return this.StartGame();
         }
 
         private static int Game(int rockCount, int sleepTime)

@@ -32,6 +32,12 @@
                 quest.Id = id;
                 return quest;
             }
+            else if (questName == "GuessTheNumber")
+            {
+                GuessTheNumber quest = new GuessTheNumber(initPosition);
+                quest.Id = id;
+                return quest;
+            }
 
             return null;
         }

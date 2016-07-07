@@ -143,12 +143,7 @@ namespace TheGame.BoardPieces.Quests
             this.DisplaySymbol = "F";
         }
 
-        public double GetInteractionResult()
-        {
-            return this.StartGame();
-        }
-
-        public double StartGame()
+        public override double StartGame()
         {
 
             GenerateGameScene();
@@ -205,7 +200,7 @@ namespace TheGame.BoardPieces.Quests
 
             this.PrintVictoryScreen();
             Console.ReadKey();
-            Console.SetWindowSize(80, 42);
+            Console.SetWindowSize(80, 44);
             return score;
         }
 
