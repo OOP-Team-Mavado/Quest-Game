@@ -13,7 +13,7 @@
         private int id;
         private int width;
         private int height;
-        private string displaySymbol;
+        protected string displaySymbol;
         private Position position;
         private ConsoleColor color;
 
@@ -52,7 +52,7 @@
             }
         }
 
-        public string DisplaySymbol
+        public  virtual string DisplaySymbol
         {
             get
             {
@@ -72,10 +72,10 @@
                 return color;
             }
 
-            //private set
-            //{
-            //    color = Constants.BombColor;
-            //}
+           set
+            {
+                this.color = value;
+            }
         }
 
         public int Width

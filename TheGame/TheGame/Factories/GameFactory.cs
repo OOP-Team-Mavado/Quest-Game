@@ -7,6 +7,7 @@
     using TheGame.Games;
     using TheGame.Helpers;
     using TheGame.Utils;
+    using TheGame.BoardPieces.Items;
 
     public class GameFactory
     {
@@ -127,14 +128,22 @@
                     }
                 }
 
+         
+                PointsItem scoreShower = new PointsItem(new Position(Constants.PlayerScoreWidth,Constants.PlayerScoreDebth));
+                scoreShower.MainGame = game;
+                scoreShower.TypeOfPoints = "points";
+                scoreShower.Id = this.UseCurrentID();
+                scoreShower.Color = System.ConsoleColor.White;
+                game.AddBoardElement(scoreShower);
+               
+
                 game.SetMinimumWinScore(1);
 
                 return game;
             }
 
-            IGame game1 = null;
 
-            return game1;
+            return null;
         }
 
         private void addBoxToGame(MainGame game, Position startingPosition, int width, int height)

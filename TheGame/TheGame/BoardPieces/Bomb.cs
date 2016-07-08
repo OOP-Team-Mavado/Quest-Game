@@ -106,8 +106,7 @@
 
         public double GetInteractionResult()
         {
-            //// TODO: implement GetInteractionResult for Bomb
-            throw new NotImplementedException();
+            return -1;
         }
     }
 }

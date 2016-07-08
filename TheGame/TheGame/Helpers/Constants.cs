@@ -1,6 +1,7 @@
 ﻿namespace TheGame.Helpers
 {
     using System;
+    using TheGame.Utils;
 
     public class Constants
     {
@@ -28,5 +29,7 @@
         public const int PriestStartingHp = 5;
         public const int MagicianStartingHp = 4;
         public const int WinIndicator = 10000;
+        public const int PlayerScoreWidth = 0;
+        public const int PlayerScoreDebth = 43;
     }
 }

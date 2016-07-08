@@ -29,6 +29,11 @@
             //// TODO probably need to instantiate the player and the starting position in the constructor
         }
 
+        public double PlayerScore
+        {
+            get { return this.playerScore; }
+        }
+
         public void SetMinimumWinScore(int minimumWinScore)
         {
             this.minimumWinScore = minimumWinScore;
@@ -43,6 +48,9 @@
         {
             Visualizer.DrawEverything(this.boardElements);
             this.gameStatus = 0;
+            Position scorePosition = new Position(Constants.PlayerScoreWidth, Constants.PlayerScoreDebth);
+            IDisplayPiece scoreShower = GetPieceAtPosition(scorePosition, this.boardElements);
+            Visualizer.DrawDisplayPieceOnConsole(scoreShower);
 
             this.winAreaPoints = ((WinArea)this.boardElements
                                                 .Find(x => x.DisplaySymbol == "W")).GetPositions();
@@ -163,7 +171,7 @@
                 {
                     int playerHP = this.player.Hp;
                     double playerNewHp = playerHP + interactionResult;
-                    this.player.Hp = playerHP;
+                    this.player.Hp = (int)playerNewHp;
                 }
                 else
                 {

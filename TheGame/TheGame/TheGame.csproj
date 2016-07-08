@@ -49,6 +49,7 @@
     <Compile Include="BoardPieces\Bomb.cs" />
     <Compile Include="BoardPieces\Box.cs" />
     <Compile Include="BoardPieces\Items\AbstractItem.cs" />
+    <Compile Include="BoardPieces\Items\PointsItem.cs" />
     <Compile Include="BoardPieces\Quests\AbstractQuest.cs" />
     <Compile Include="BoardPieces\Quests\FallingRocks.cs" />
     <Compile Include="BoardPieces\Quests\FlappyBirdQuest.cs" />
