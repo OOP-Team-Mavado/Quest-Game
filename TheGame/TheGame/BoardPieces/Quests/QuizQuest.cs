@@ -40,7 +40,7 @@
             string playerAnswer = Console.ReadLine();
             double result = 0;
 
-            if (playerAnswer == this.quizes[questionNumber][1])
+            if (playerAnswer.ToLower() == this.quizes[questionNumber][1].ToLower())
             {
                 Console.WriteLine(Constants.CorrectMessage);
                 result = 1;
