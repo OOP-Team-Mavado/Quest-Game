@@ -100,6 +100,7 @@
             if (gameStatus == 1)
             {
                 Console.WriteLine("Congratulations you won!");
+                Console.WriteLine("Your Score: {0}", PlayerScore);
             }
             else if (gameStatus == -1)
             {
