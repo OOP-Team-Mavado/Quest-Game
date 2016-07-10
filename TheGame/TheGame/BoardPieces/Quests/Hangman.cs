@@ -12,36 +12,13 @@
         private Position position;
         private int health;
         private string progress;
-
-        private List<KeyValuePair<string, string>> GetSecretWords()
-        {
-            var words = new List<KeyValuePair<string, string>>();
-            words.Add(new KeyValuePair<string, string>("hedgehoge", "Animal with torns."));
-            words.Add(new KeyValuePair<string, string>("bypass", "Avoid something unpleasant or laborious."));
-            words.Add(new KeyValuePair<string, string>("jejune", "Lacking interest or significance or impact."));
-            words.Add(new KeyValuePair<string, string>("lucid", "Transparently clear; easily understandable."));
-            words.Add(new KeyValuePair<string, string>("oxymoron", "Conjoining contradictory terms."));
-            words.Add(new KeyValuePair<string, string>("saquinavir", "A weak protease inhibitor used in treating HIV."));
-            words.Add(new KeyValuePair<string, string>("wanton", "Lewd or lascivious woman."));
-            words.Add(new KeyValuePair<string, string>("wonky", "Turned or twisted toward one side."));
-            words.Add(new KeyValuePair<string, string>("zenith", "The point above the observer directly opposite the nadir."));
-            words.Add(new KeyValuePair<string, string>("alliteration", "Use of the same consonant at the beginning of each word."));
-
-            return words;
-        }
-
+        
         public Hangman(Position position)
             : base(position)
         {
             this.position = position;
             this.health = 7;
             this.progress = string.Empty;
-        }
-
-        private void ClearConsole()
-        {
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Cyan;
         }
 
         public override double StartGame()
@@ -67,6 +44,31 @@
             }
 
             return this.AssignPoints(selectedSecretWord, isGuessed);
+        }
+
+        #region Private Methods
+
+        private List<KeyValuePair<string, string>> GetSecretWords()
+        {
+            var words = new List<KeyValuePair<string, string>>();
+            words.Add(new KeyValuePair<string, string>("hedgehoge", "Animal with torns."));
+            words.Add(new KeyValuePair<string, string>("bypass", "Avoid something unpleasant or laborious."));
+            words.Add(new KeyValuePair<string, string>("jejune", "Lacking interest or significance or impact."));
+            words.Add(new KeyValuePair<string, string>("lucid", "Transparently clear; easily understandable."));
+            words.Add(new KeyValuePair<string, string>("oxymoron", "Conjoining contradictory terms."));
+            words.Add(new KeyValuePair<string, string>("saquinavir", "A weak protease inhibitor used in treating HIV."));
+            words.Add(new KeyValuePair<string, string>("wanton", "Lewd or lascivious woman."));
+            words.Add(new KeyValuePair<string, string>("wonky", "Turned or twisted toward one side."));
+            words.Add(new KeyValuePair<string, string>("zenith", "The point above the observer directly opposite the nadir."));
+            words.Add(new KeyValuePair<string, string>("alliteration", "Use of the same consonant at the beginning of each word."));
+
+            return words;
+        }
+
+        private void ClearConsole()
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
         }
 
         private double AssignPoints(string selectedSecretWord, bool isGuessed)
@@ -163,5 +165,7 @@
             Console.WriteLine("Your current healt before beheading: {0}", this.health);
             Console.WriteLine(new string('=', 30));
         }
+
+        #endregion
     }
 }
