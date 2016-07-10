@@ -67,7 +67,8 @@
                     "QuizQuest",
                     "FallingRocks",
                     "FlappyBird",                   
-                    "GuessTheNumber"
+                    "GuessTheNumber",
+                    "Hangman"
                 };
 
                 var questsCount = questNames.Count;

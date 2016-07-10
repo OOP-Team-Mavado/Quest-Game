@@ -38,6 +38,12 @@
                 quest.Id = id;
                 return quest;
             }
+            else if (questName == "Hangman")
+            {
+                Hangman quest = new Hangman(initPosition);
+                quest.Id = id;
+                return quest;
+            }
 
             return null;
         }
