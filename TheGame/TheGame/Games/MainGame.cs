@@ -101,6 +101,11 @@
             {
                 Console.WriteLine("Congratulations you won!");
                 Console.WriteLine("Your Score: {0}", PlayerScore);
+                if(this.player.DisplaySymbol == "M")
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    Console.WriteLine(this.player.ToString());
+                }
             }
             else if (gameStatus == -1)
             {
