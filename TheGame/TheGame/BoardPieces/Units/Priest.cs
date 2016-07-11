@@ -1,6 +1,7 @@
 ﻿namespace TheGame.BoardPieces.Units
 {
     using System;
+    using System.Text;
     using TheGame.Helpers;
     using TheGame.Utils;
 
@@ -23,6 +24,41 @@
         public override void UseSpecialSkill()
         {
             throw new NotImplementedException();
+        }
+
+        public override string ToString()
+        {
+            var result = new StringBuilder();
+            for (int i = 0; i < 3; i++)
+            {
+                result.AppendLine();
+            }
+
+            result.AppendLine("                    You are an amazing PRIEST!");
+
+            for (int i = 0; i < 3; i++)
+            {
+                result.AppendLine();
+            }
+
+            result.AppendLine("                                 ####    ");
+            for (int i = 0; i < 4; i++)
+            {
+                result.AppendLine("                                 #  #    ");
+            }
+
+            result.AppendLine("                          ########  ########");
+            result.AppendLine("                          #                #");
+            result.AppendLine("                          ########  ########");
+
+            for (int i = 0; i < 9; i++)
+            {
+                result.AppendLine("                                 #  #    ");
+            }
+
+            result.AppendLine("                                 ####    ");
+
+            return result.ToString();
         }
     }
 }
