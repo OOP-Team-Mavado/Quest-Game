@@ -15,6 +15,7 @@
             : base(position)
         {
             this.position = position;
+            this.DisplaySymbol = "R";
         }
 
         public override double StartGame()

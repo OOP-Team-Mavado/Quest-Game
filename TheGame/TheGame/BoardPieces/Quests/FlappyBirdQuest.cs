@@ -6,134 +6,15 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using TheGame.BoardInterfaces;
-using TheGame.BoardPieces.Quests.FlappyBirdGame;
 using TheGame.Utils;
+using TheGame.BoardPieces.Quests.FlappyClasses;
 
 namespace TheGame.BoardPieces.Quests
 {
-    namespace FlappyBirdGame
-    {
-        abstract class GameElement
-        {
-            public abstract void UpdateNextFrame();
-
-            public int Row { get; set; }
-            public int Column { get; set; }
-
-            public abstract char DisplaySymbol { get; }
-            public abstract ConsoleColor DisplayColor { get; }
-        }
-
-        class EmptySpaceElement : GameElement
-        {
-            public override ConsoleColor DisplayColor
-            {
-                get
-                {
-                    return ConsoleColor.White;
-                }
-            }
-
-            public override char DisplaySymbol
-            {
-                get
-                {
-                    return ' ';
-                }
-            }
-
-            public override void UpdateNextFrame()
-            {
-                this.Column--;
-            }
-        }
-
-        class PlayerElement : GameElement
-        {
-            private bool isJumping = false;
-            private int remainingJumpFrames = 0;
-            
-
-            public override ConsoleColor DisplayColor
-            {
-                get
-                {
-                    return ConsoleColor.Red;
-                }
-            }
-
-            public override char DisplaySymbol
-            {
-                get
-                {
-                    return 'w';
-                }
-            }
-
-            public override void UpdateNextFrame()
-            {
-                if(isJumping && remainingJumpFrames > 0)
-                {
-                    this.remainingJumpFrames--;
-                    this.Row--;
-                }
-                else if(isJumping && remainingJumpFrames == 0)
-                {
-                    this.isJumping = false;
-                }
-                else
-                {
-                    this.Row++;
-                }
-            }
-
-            public void Jump()
-            {
-                this.isJumping = true;
-                this.remainingJumpFrames = 3;
-            }
-
-            public bool IsColliding(ObstacleElement obstacle)
-            {
-                if (obstacle.Row == this.Row && obstacle.Column == this.Column)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
-
-        class ObstacleElement : GameElement
-        {
-            public override ConsoleColor DisplayColor
-            {
-                get
-                {
-                    return ConsoleColor.Magenta;
-                }
-            }
-
-            public override char DisplaySymbol
-            {
-                get
-                {
-                    return '@';
-                }
-            }
-
-            public override void UpdateNextFrame()
-            {
-                this.Column--;
-            }
-        }
-
-    }
 
     class FlappyBirdQuest : AbstractQuest, IGame, IInteractable
     {
+
         List<GameElement> gameElements = new List<GameElement>();
         PlayerElement player;
         private int score = 0;
@@ -153,7 +34,6 @@ namespace TheGame.BoardPieces.Quests
             while (!gameOver)
             {
                 Console.Clear();
-                //Console.ForegroundColor = ConsoleColor.Cyan;
 
                 foreach (var element in gameElements)
                 {

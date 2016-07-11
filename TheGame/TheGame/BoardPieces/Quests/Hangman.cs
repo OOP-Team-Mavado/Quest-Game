@@ -19,6 +19,7 @@
             this.position = position;
             this.health = 7;
             this.progress = string.Empty;
+            this.DisplaySymbol = "H";
         }
 
         public override double StartGame()

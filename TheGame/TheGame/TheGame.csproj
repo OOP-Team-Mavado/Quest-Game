@@ -53,6 +53,10 @@
     <Compile Include="BoardPieces\Quests\AbstractQuest.cs" />
     <Compile Include="BoardPieces\Quests\FallingRocks.cs" />
     <Compile Include="BoardPieces\Quests\FlappyBirdQuest.cs" />
+    <Compile Include="BoardPieces\Quests\FlappyClasses\EmptySpaceElement.cs" />
+    <Compile Include="BoardPieces\Quests\FlappyClasses\GameElement.cs" />
+    <Compile Include="BoardPieces\Quests\FlappyClasses\ObstacleElement.cs" />
+    <Compile Include="BoardPieces\Quests\FlappyClasses\PlayerElement.cs" />
     <Compile Include="BoardPieces\Quests\GuessTheNumber.cs" />
     <Compile Include="BoardPieces\Quests\Hangman.cs" />
     <Compile Include="BoardPieces\Units\Magician.cs" />

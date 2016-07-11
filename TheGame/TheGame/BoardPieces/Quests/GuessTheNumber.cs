@@ -13,6 +13,7 @@
             : base(position)
         {
             this.position = position;
+            this.DisplaySymbol = "N";
         }
 
         public override double StartGame()
