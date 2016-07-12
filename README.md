@@ -25,24 +25,24 @@ initial skeleton by iRusev90
 * At least 15 classes (implementing the application logic)
 * At least 1 structure (in the falling rocks quiz)
 * At least 1 design pattern (Singleton for the random number generator, Factory for the game and the quizes)
+* At least 3 abstract classes (with inheritors)
+* At least 1 polymorphism usage (gameElements list in FlappyQuest)
+* Provide a class diagram (to visualize all types)
 
 ##### from optional #####
 * Static members (fields, properties, constructor, etc.)
 * Constants
 * Lambda expressions and LINQ (RemoveDisplayPiece)
+* Namespaces (if your classes are too many)
+* User interface (UI) – console, graphical, web or mobile (console)
 
 ### Requirements NOT covered: ###
 ##### from general #####
-* At least 3 abstract classes (with inheritors)
 * At least 1 custom exception class (with usage in your code)
 * At least 3 levels of depth in inheritance
-* At least 1 polymorphism usage
 * At least 1 enumeration (we can enumerate the console colors)
 * At least 1 event (with subscribers)
-* Provide a class diagram (to visualize all types)
 
 ##### from optional #####
 * generic types, indexers, operators overloading
 * Implementation of IEnumerable<T>, ICloneable, ToString() override
-* Namespaces (if your classes are too many)
-* User interface (UI) – console, graphical, web or mobile

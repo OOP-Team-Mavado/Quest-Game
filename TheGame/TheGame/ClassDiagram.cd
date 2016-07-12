@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TheGame.BoardInterfaces.BoardTraverser" Collapsed="true">
+    <Position X="7.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BoardInterfaces\BoardTraverser.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TheGame.BoardPieces.Bomb" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAABAAAAAUgQAAAIEAAAAAAAACAQAAAgAQAAgA=</HashCode>
+      <FileName>BoardPieces\Bomb.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TheGame.BoardPieces.Box" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACACAABKAAAAQgQAAIAEAAAAAAAgCAABAAgAQCBgA=</HashCode>
+      <FileName>BoardPieces\Box.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TheGame.BoardPieces.WinArea" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAABCAAAA0gQAAIAEAAAAIAAACAAAAAgAYAAgA=</HashCode>
+      <FileName>BoardPieces\WinArea.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="TheGame.BoardPieces.Items.AbstractItem" Collapsed="true">
+    <Position X="10.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAABAAAAAQgQAAAIEAAAAAAAACAAAAAgAQAAgA=</HashCode>
+      <FileName>BoardPieces\Items\AbstractItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TheGame.BoardPieces.Items.PointsItem" Collapsed="true">
+    <Position X="10.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAACAAAAAgAAAAAAAAEAAAAQAAAA=</HashCode>
+      <FileName>BoardPieces\Items\PointsItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGame.BoardPieces.Quests.AbstractQuest" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAACAAAABAAAAAUgQAAIIEAgAAABAACAAABAgAQAAgA=</HashCode>
+      <FileName>BoardPieces\Quests\AbstractQuest.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TheGame.BoardPieces.Quests.FallingRocks" Collapsed="true">
+    <Position X="12" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAgAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BoardPieces\Quests\FallingRocks.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TheGame.BoardPieces.Quests.FlappyBirdQuest" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAgAAAQAAAIAAAgAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>BoardPieces\Quests\FlappyBirdQuest.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TheGame.BoardPieces.Quests.GuessTheNumber" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BoardPieces\Quests\GuessTheNumber.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TheGame.BoardPieces.Quests.Hangman" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAABAAAAgAAAAAIAAgAAAAAAAAEIAAQACABAg=</HashCode>
+      <FileName>BoardPieces\Quests\Hangman.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TheGame.BoardPieces.Quests.QuizQuest" Collapsed="true">
+    <Position X="9.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAIAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BoardPieces\Quests\QuizQuest.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TheGame.BoardPieces.Quests.FlappyClasses.EmptySpaceElement" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAABAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>BoardPieces\Quests\FlappyClasses\EmptySpaceElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGame.BoardPieces.Quests.FlappyClasses.GameElement" Collapsed="true">
+    <Position X="5.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAABAAAAIAAABAgAAAAAAAAQAAAA=</HashCode>
+      <FileName>BoardPieces\Quests\FlappyClasses\GameElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGame.BoardPieces.Quests.FlappyClasses.ObstacleElement" Collapsed="true">
+    <Position X="3" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAABAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>BoardPieces\Quests\FlappyClasses\ObstacleElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGame.BoardPieces.Quests.FlappyClasses.PlayerElement" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAgAAAAAAAAAAAAAIAAABAAAAAAAQAAYAAAA=</HashCode>
+      <FileName>BoardPieces\Quests\FlappyClasses\PlayerElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGame.BoardPieces.Units.AbstractHero" Collapsed="true">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQACAAAABIAAAAwgQAAIIEAAAAABAACAAQhAgAQAQgA=</HashCode>
+      <FileName>BoardPieces\Units\AbstractHero.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="TheGame.BoardPieces.Units.Magician" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>BoardPieces\Units\Magician.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGame.BoardPieces.Units.Priest" Collapsed="true">
+    <Position X="5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>BoardPieces\Units\Priest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGame.Factories.GameFactory" Collapsed="true">
+    <Position X="19.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Factories\GameFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGame.Factories.QuestFactory" Collapsed="true">
+    <Position X="18" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Factories\QuestFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGame.Games.MainGame" Collapsed="true">
+    <Position X="7.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAIAAAAAAQABIACCAAEAAAQgAAAAAQARAAAAAAAAAIA=</HashCode>
+      <FileName>Games\MainGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGame.Helpers.Constants" Collapsed="true">
+    <Position X="18" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAQEAAAEADAAihAAgAAAAAgASAAAAAIIUBRAEA=</HashCode>
+      <FileName>Helpers\Constants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGame.Helpers.Generator" Collapsed="true">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ggEAAgAACAAAQIAECAAAAIAgABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helpers\Generator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGame.StartGame" Collapsed="true">
+    <Position X="19.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>StartGame.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGame.Utils.Position" Collapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAABAAAAAAAAABAAAAAAAAIIEAAAA=</HashCode>
+      <FileName>Utils\Position.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGame.Utils.Visualizer" Collapsed="true">
+    <Position X="14.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAgAAAAAAIAAAAAAEAA=</HashCode>
+      <FileName>Utils\Visualizer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="TheGame.BoardInterfaces.IDisplayPiece" Collapsed="true">
+    <Position X="14.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAABAAAAAAgAAAAAEAAAAAAAAAAAAAAgAQAAAA=</HashCode>
+      <FileName>BoardInterfaces\IDisplayPiece.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TheGame.BoardInterfaces.IGame" Collapsed="true">
+    <Position X="16.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BoardInterfaces\IGame.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TheGame.BoardInterfaces.IInteractable" Collapsed="true">
+    <Position X="18" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BoardInterfaces\IInteractable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TheGame.BoardInterfaces.IMoveable" Collapsed="true">
+    <Position X="19.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BoardInterfaces\IMoveable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="TheGame.BoardPieces.Units.IUnit" Collapsed="true">
+    <Position X="14.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>BoardPieces\Units\IUnit.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
