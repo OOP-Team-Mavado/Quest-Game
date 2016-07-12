@@ -28,6 +28,7 @@ initial skeleton by iRusev90
 * At least 3 abstract classes (with inheritors)
 * At least 1 polymorphism usage (gameElements list in FlappyQuest)
 * Provide a class diagram (to visualize all types)
+* At least 3 levels of depth in inheritance(GameElement in FlappyQuest)
 
 ##### from optional #####
 * Static members (fields, properties, constructor, etc.)
@@ -39,7 +40,6 @@ initial skeleton by iRusev90
 ### Requirements NOT covered: ###
 ##### from general #####
 * At least 1 custom exception class (with usage in your code)
-* At least 3 levels of depth in inheritance
 * At least 1 enumeration (we can enumerate the console colors)
 * At least 1 event (with subscribers)
 

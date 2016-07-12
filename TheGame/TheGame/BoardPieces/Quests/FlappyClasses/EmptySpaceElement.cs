@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TheGame.BoardPieces.Quests.FlappyClasses
 {
-    class EmptySpaceElement : GameElement
+    class EmptySpaceElement : SceneElement
     {
         public override ConsoleColor DisplayColor
         {
@@ -22,11 +22,6 @@ namespace TheGame.BoardPieces.Quests.FlappyClasses
             {
                 return ' ';
             }
-        }
-
-        public override void UpdateNextFrame()
-        {
-            this.Column--;
         }
     }
 }
